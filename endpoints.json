@@ -199,6 +199,435 @@
         }
       }
     },
+    "/api/chat/memory": {
+      "post": {
+        "summary": "Chat With Memory",
+        "description": "💭 Memory-aware chat with conversation history tracking - PUBLIC ACCESS",
+        "operationId": "chat_with_memory_api_chat_memory_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConversationChatMessage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationChatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/chat/memory/stream": {
+      "post": {
+        "summary": "Chat With Memory Stream",
+        "description": "💭 Streaming memory-aware chat with conversation history - PUBLIC ACCESS",
+        "operationId": "chat_with_memory_stream_api_chat_memory_stream_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConversationChatMessage"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/conversations": {
+      "get": {
+        "summary": "Get User Conversations",
+        "description": "Get user's conversation sessions - ADMIN ONLY",
+        "operationId": "get_user_conversations_api_conversations_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConversationSession"
+                  },
+                  "title": "Response Get User Conversations Api Conversations Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Cleanup Conversations",
+        "description": "Clean up old conversation sessions - ADMIN ONLY",
+        "operationId": "cleanup_conversations_api_conversations_delete",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "days_old",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 30,
+              "title": "Days Old"
+            }
+          },
+          {
+            "name": "inactive_days",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 7,
+              "title": "Inactive Days"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/conversations/{session_id}/history": {
+      "get": {
+        "summary": "Get Conversation History",
+        "description": "Get conversation history for a specific session - PUBLIC ACCESS",
+        "operationId": "get_conversation_history_api_conversations__session_id__history_get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/conversations/{session_id}/close": {
+      "post": {
+        "summary": "Close Conversation",
+        "description": "Close a conversation session - ADMIN ONLY",
+        "operationId": "close_conversation_api_conversations__session_id__close_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          },
+          {
+            "name": "summary",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Summary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/conversations/{session_id}": {
+      "delete": {
+        "summary": "Delete User Session",
+        "description": "Delete a specific conversation session - PUBLIC ACCESS (IP verified)",
+        "operationId": "delete_user_session_api_conversations__session_id__delete",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/my-conversations": {
+      "get": {
+        "summary": "Get My Conversations",
+        "description": "Get current IP's conversation sessions - PUBLIC ACCESS",
+        "operationId": "get_my_conversations_api_my_conversations_get",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete My Conversations",
+        "description": "Delete ALL conversation sessions for current IP - PUBLIC ACCESS",
+        "operationId": "delete_my_conversations_api_my_conversations_delete",
+        "parameters": [
+          {
+            "name": "confirm",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Confirm"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/speech-to-speech/memory": {
+      "post": {
+        "summary": "Speech To Speech With Memory",
+        "description": "🎤💭 Memory-aware speech-to-speech with conversation tracking - PUBLIC ACCESS",
+        "operationId": "speech_to_speech_with_memory_api_speech_to_speech_memory_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_speech_to_speech_with_memory_api_speech_to_speech_memory_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/upload/progress/{session_id}": {
       "get": {
         "summary": "Get Upload Progress",
@@ -648,90 +1077,6 @@
           }
         }
       }
-    },
-    "/api/chat/compare": {
-      "post": {
-        "summary": "Compare Performance",
-        "description": "🚀 Performance comparison: Original vs Optimized RAG systems",
-        "operationId": "compare_performance_api_chat_compare_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChatMessage"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "HTTPBearer": []
-          }
-        ]
-      }
-    },
-    "/api/voice/compare": {
-      "post": {
-        "summary": "Compare Voice Responses",
-        "description": "🎤 Voice vs Text Response comparison - Test voice enhancement",
-        "operationId": "compare_voice_responses_api_voice_compare_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChatMessage"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "HTTPBearer": []
-          }
-        ]
-      }
     }
   },
   "components": {
@@ -764,6 +1109,51 @@
           "audio_file"
         ],
         "title": "Body_speech_to_speech_endpoint_api_speech_to_speech_post"
+      },
+      "Body_speech_to_speech_with_memory_api_speech_to_speech_memory_post": {
+        "properties": {
+          "audio_file": {
+            "type": "string",
+            "format": "binary",
+            "title": "Audio File"
+          },
+          "session_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session Id"
+          },
+          "start_new_conversation": {
+            "type": "boolean",
+            "title": "Start New Conversation",
+            "default": false
+          },
+          "voice": {
+            "type": "string",
+            "title": "Voice",
+            "default": "tr-TR-EmelNeural"
+          },
+          "gender": {
+            "type": "string",
+            "title": "Gender",
+            "default": "female"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language",
+            "default": "tr"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio_file"
+        ],
+        "title": "Body_speech_to_speech_with_memory_api_speech_to_speech_memory_post"
       },
       "Body_text_to_speech_endpoint_api_text_to_speech_post": {
         "properties": {
@@ -846,6 +1236,122 @@
           "timestamp"
         ],
         "title": "ChatResponse"
+      },
+      "ConversationChatMessage": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "session_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session Id"
+          },
+          "start_new_conversation": {
+            "type": "boolean",
+            "title": "Start New Conversation",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "title": "ConversationChatMessage"
+      },
+      "ConversationChatResponse": {
+        "properties": {
+          "response": {
+            "type": "string",
+            "title": "Response"
+          },
+          "sources": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "timestamp": {
+            "type": "string",
+            "title": "Timestamp"
+          },
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "message_count": {
+            "type": "integer",
+            "title": "Message Count"
+          },
+          "is_new_conversation": {
+            "type": "boolean",
+            "title": "Is New Conversation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "response",
+          "sources",
+          "timestamp",
+          "session_id",
+          "message_count",
+          "is_new_conversation"
+        ],
+        "title": "ConversationChatResponse"
+      },
+      "ConversationSession": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "string",
+            "title": "Updated At"
+          },
+          "message_count": {
+            "type": "integer",
+            "title": "Message Count"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "first_message": {
+            "type": "string",
+            "title": "First Message"
+          },
+          "last_message": {
+            "type": "string",
+            "title": "Last Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "created_at",
+          "updated_at",
+          "message_count",
+          "status",
+          "first_message",
+          "last_message"
+        ],
+        "title": "ConversationSession"
       },
       "DocumentChunk": {
         "properties": {

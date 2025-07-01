@@ -21,15 +21,17 @@ import {
   Info,
   Download,
   Moon,
-  Sun
+  Sun,
+  MessageCircle,
+  Brain
 } from 'lucide-react'
 import { useAuthStore } from '../stores/useAuthStore'
 import { useDocumentStore } from '../stores/useDocumentStore'
 import { useNavigate } from 'react-router-dom'
-import { documentService, systemService } from '../services/api'
+import { documentService, systemService, conversationService } from '../services/api'
 import { formatFileSize, formatDate } from '../utils'
 import toast from 'react-hot-toast'
-import type { DocumentContent, DocumentDetails } from '../types'
+import type { DocumentContent, DocumentDetails, ConversationSession } from '../types'
 
 interface SystemStats {
   total_documents: number
@@ -40,7 +42,7 @@ interface SystemStats {
 }
 
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'documents'>('overview')
+  const [activeTab, setActiveTab] = useState<'overview' | 'documents' | 'conversations'>('overview')
   const [systemStats, setSystemStats] = useState<SystemStats | null>(null)
   const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null)
   const [isUploading, setIsUploading] = useState(false)
@@ -53,6 +55,13 @@ export default function AdminDashboard() {
   const [documentContent, setDocumentContent] = useState<DocumentContent | null>(null)
   const [documentDetails, setDocumentDetails] = useState<DocumentDetails | null>(null)
   const [isLoadingDocument, setIsLoadingDocument] = useState(false)
+  
+  // Conversation management state
+  const [conversations, setConversations] = useState<ConversationSession[]>([])
+  const [isLoadingConversations, setIsLoadingConversations] = useState(false)
+  const [selectedConversation, setSelectedConversation] = useState<string | null>(null)
+  const [conversationHistory, setConversationHistory] = useState<any[]>([])
+  const [isLoadingHistory, setIsLoadingHistory] = useState(false)
   
   const { user, logout } = useAuthStore()
   const navigate = useNavigate()
@@ -81,6 +90,7 @@ export default function AdminDashboard() {
       return
     }
     loadData()
+    loadConversations() // Load conversations immediately when admin enters
   }, [user, navigate])
 
   useEffect(() => {
@@ -89,8 +99,18 @@ export default function AdminDashboard() {
       fetchDocuments()
       fetchUploadSessions()
       fetchDocumentStats()
+      loadConversations()
+      
+      // Auto-refresh conversations every 30 seconds
+      const interval = setInterval(() => {
+        if (activeTab === 'conversations') {
+          loadConversations()
+        }
+      }, 30000)
+      
+      return () => clearInterval(interval)
     }
-  }, [user?.isAuthenticated])
+  }, [user?.isAuthenticated, activeTab])
 
   // Clear errors when they exist
   useEffect(() => {
@@ -133,6 +153,94 @@ export default function AdminDashboard() {
     setIsDarkMode(!isDarkMode)
   }
 
+  // Load conversations - Try admin first, fallback to public endpoint
+  const loadConversations = async () => {
+    try {
+      setIsLoadingConversations(true)
+      
+      // Try admin endpoint first
+      try {
+        const adminData = await conversationService.getConversations()
+        setConversations(adminData)
+        console.log('✅ Loaded conversations via admin endpoint:', adminData.length)
+      } catch (adminError) {
+        console.log('❌ Admin endpoint failed, trying public endpoint...')
+        
+        // Fallback to public endpoint
+        const publicData = await conversationService.getMyConversations()
+        setConversations(publicData)
+        console.log('✅ Loaded conversations via public endpoint:', publicData.length)
+      }
+    } catch (error) {
+      console.error('Failed to load conversations:', error)
+      toast.error('Konuşmalar yüklenemedi')
+    } finally {
+      setIsLoadingConversations(false)
+    }
+  }
+
+  // Load conversation history
+  const loadConversationHistory = async (sessionId: string) => {
+    try {
+      setIsLoadingHistory(true)
+      const history = await conversationService.getConversationHistory(sessionId)
+      setConversationHistory(history)
+      setSelectedConversation(sessionId)
+    } catch (error) {
+      console.error('Failed to load conversation history:', error)
+      toast.error('Konuşma geçmişi yüklenemedi')
+    } finally {
+      setIsLoadingHistory(false)
+    }
+  }
+
+  // Close conversation
+  const handleCloseConversation = async (sessionId: string) => {
+    if (!confirm('Bu konuşmayı kapatmak istediğinizden emin misiniz?')) return
+    
+    try {
+      await conversationService.closeConversation(sessionId)
+      toast.success('Konuşma kapatıldı')
+      await loadConversations()
+      
+      if (selectedConversation === sessionId) {
+        setSelectedConversation(null)
+        setConversationHistory([])
+      }
+    } catch (error) {
+      console.error('Failed to close conversation:', error)
+      toast.error('Konuşma kapatılamadı')
+    }
+  }
+
+  // Cleanup old conversations
+  const handleCleanupConversations = async () => {
+    if (!confirm('Eski konuşmaları temizlemek istediğinizden emin misiniz? (30 gün eski ve 7 gün inaktif)')) return
+    
+    try {
+      await conversationService.cleanupConversations(30, 7)
+      toast.success('Eski konuşmalar temizlendi')
+      await loadConversations()
+    } catch (error) {
+      console.error('Failed to cleanup conversations:', error)
+      toast.error('Konuşmalar temizlenemedi')
+    }
+  }
+
+  // Force cleanup all conversations (more aggressive)
+  const handleForceCleanupConversations = async () => {
+    if (!confirm('TÜM konuşmaları silmek istediğinizden emin misiniz? Bu işlem geri alınamaz!')) return
+    
+    try {
+      await conversationService.cleanupConversations(0, 0) // Very aggressive cleanup
+      toast.success('Tüm konuşmalar temizlendi')
+      await loadConversations()
+    } catch (error) {
+      console.error('Failed to force cleanup conversations:', error)
+      toast.error('Konuşmalar temizlenemedi')
+    }
+  }
+
   // Add refresh all data function
   const refreshAllData = async () => {
     try {
@@ -140,7 +248,8 @@ export default function AdminDashboard() {
         fetchDocuments(),
         fetchDocumentStats(),
         fetchUploadSessions(),
-        loadData()
+        loadData(),
+        loadConversations()
       ])
       toast.success('Veriler güncellendi')
     } catch (error) {
@@ -381,7 +490,8 @@ export default function AdminDashboard() {
           <div className="flex">
             {[
               { id: 'overview', label: 'Genel Bakış', icon: BarChart3 },
-              { id: 'documents', label: 'Dokümanlar', icon: FileText }
+              { id: 'documents', label: 'Dokümanlar', icon: FileText },
+              { id: 'conversations', label: 'Konuşmalar', icon: MessageCircle }
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -763,6 +873,525 @@ export default function AdminDashboard() {
                   </div>
                 </div>
               </div>
+            </motion.div>
+          )}
+
+          {activeTab === 'conversations' && (
+            <motion.div
+              key="conversations"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="space-y-6"
+            >
+              {/* Header with actions */}
+              <div className="flex items-center justify-between">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">Konuşma Yönetimi</h2>
+                <div className="flex items-center space-x-3">
+                  <button
+                    onClick={loadConversations}
+                    className="flex items-center space-x-2 px-4 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                    disabled={isLoadingConversations}
+                    title="Konuşmaları yenile"
+                  >
+                    <RefreshCw className={`h-4 w-4 ${isLoadingConversations ? 'animate-spin' : ''}`} />
+                    <span>Yenile</span>
+                  </button>
+                  
+                  <button
+                    onClick={handleCleanupConversations}
+                    className="flex items-center space-x-2 px-4 py-2 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 hover:bg-orange-50 dark:hover:bg-orange-900/20 rounded-lg transition-colors"
+                  >
+                    <Trash2 className="h-4 w-4" />
+                    <span>Eski Konuşmaları Temizle</span>
+                  </button>
+                  
+                  <button
+                    onClick={handleForceCleanupConversations}
+                    className="flex items-center space-x-2 px-4 py-2 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                  >
+                    <X className="h-4 w-4" />
+                    <span>TÜM Konuşmaları Sil</span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Conversations List */}
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 transition-colors">
+                  <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                      Aktif Konuşmalar ({conversations.length})
+                    </h3>
+                  </div>
+                  
+                  <div className="max-h-96 overflow-y-auto">
+                    {isLoadingConversations ? (
+                      <div className="text-center py-8">
+                        <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Yükleniyor...</p>
+                      </div>
+                    ) : conversations.length > 0 ? (
+                      <div className="space-y-3 p-4">
+                        {conversations.map((conversation, index) => (
+                          <motion.div
+                            key={conversation.session_id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className={`group relative p-4 rounded-xl border cursor-pointer transition-all duration-300 ${
+                              selectedConversation === conversation.session_id 
+                                ? 'bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-200 dark:border-blue-700 shadow-md'
+                                : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm'
+                            }`}
+                            onClick={() => loadConversationHistory(conversation.session_id)}
+                          >
+                            {/* Header Row */}
+                            <div className="flex items-center justify-between mb-3">
+                              <div className="flex items-center space-x-3">
+                                <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                                  <Brain className="h-4 w-4" />
+                                </div>
+                                <div>
+                                  <div className="flex items-center space-x-2">
+                                    <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                                      {(() => {
+                                        const firstWords = conversation.first_message.split(' ').slice(0, 3).join(' ')
+                                        const date = new Date(conversation.created_at).toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit' })
+                                        return `${firstWords}... (${date})`
+                                      })()}
+                                    </span>
+                                    <span className={`px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1 ${
+                                      conversation.status === 'active' 
+                                        ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
+                                        : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400'
+                                    }`}>
+                                      <div className={`w-2 h-2 rounded-full ${
+                                        conversation.status === 'active' ? 'bg-green-500' : 'bg-gray-400'
+                                      }`} />
+                                      {conversation.status}
+                                    </span>
+                                  </div>
+                                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                                    ID: {conversation.session_id.substring(0, 8)}...
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Actions */}
+                              <div className="flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    loadConversationHistory(conversation.session_id)
+                                  }}
+                                  className="p-2 text-blue-500 hover:text-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+                                  title="Detayları görüntüle"
+                                >
+                                  <Eye className="h-4 w-4" />
+                                </button>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    handleCloseConversation(conversation.session_id)
+                                  }}
+                                  className="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                                  title="Konuşmayı kapat"
+                                >
+                                  <X className="h-4 w-4" />
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="mb-3">
+                              <div className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+                                <span className="font-medium text-gray-900 dark:text-gray-100">İlk mesaj:</span>
+                              </div>
+                              <div className="text-sm text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 italic">
+                                "{conversation.first_message.length > 80 
+                                  ? conversation.first_message.substring(0, 80) + '...' 
+                                  : conversation.first_message}"
+                              </div>
+                            </div>
+
+                            {/* Stats Row */}
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center space-x-4">
+                                <div className="flex items-center space-x-1 text-xs text-gray-500 dark:text-gray-400">
+                                  <MessageCircle className="h-3 w-3" />
+                                  <span className="font-medium">{conversation.message_count}</span>
+                                  <span>mesaj</span>
+                                </div>
+                                <div className="flex items-center space-x-1 text-xs text-gray-500 dark:text-gray-400">
+                                  <Calendar className="h-3 w-3" />
+                                  <span>{formatDate(conversation.created_at)}</span>
+                                </div>
+                              </div>
+                              
+                              <div className="text-xs text-gray-500 dark:text-gray-400">
+                                <span>Son güncelleme: </span>
+                                <span className="font-medium">{formatDate(conversation.updated_at)}</span>
+                              </div>
+                            </div>
+
+                            {/* Selection Indicator */}
+                            {selectedConversation === conversation.session_id && (
+                              <motion.div
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="absolute top-2 right-2 w-3 h-3 bg-blue-500 rounded-full"
+                              />
+                            )}
+                          </motion.div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-center py-8">
+                        <MessageCircle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                        <p className="text-gray-500 dark:text-gray-400">Henüz aktif konuşma bulunmuyor</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Conversation History */}
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 transition-colors">
+                  <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                      Konuşma Detayları
+                      {selectedConversation && (
+                        <span className="ml-2 text-sm font-mono text-gray-500">
+                          #{selectedConversation.substring(0, 8)}
+                        </span>
+                      )}
+                    </h3>
+                  </div>
+                  
+                  <div className="max-h-96 overflow-y-auto p-6">
+                    {isLoadingHistory ? (
+                      <div className="text-center py-8">
+                        <div className="w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Yükleniyor...</p>
+                      </div>
+                    ) : selectedConversation && conversationHistory.length > 0 ? (
+                      <div className="space-y-4 p-4">
+                        <div className="text-center">
+                          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
+                            <MessageCircle className="w-4 h-4" />
+                            <span>{conversationHistory.length} mesaj geçmişi</span>
+                          </div>
+                        </div>
+                        
+                        {conversationHistory.map((message, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                            className={`flex ${message.type === 'human' || message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                          >
+                            <div className="flex items-start gap-2 max-w-xs lg:max-w-md">
+                              {/* Avatar */}
+                              <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+                                message.type === 'human' || message.role === 'user' 
+                                  ? 'bg-blue-500 text-white order-2' 
+                                  : 'bg-gray-600 dark:bg-gray-700 text-white'
+                              }`}>
+                                {message.type === 'human' || message.role === 'user' ? (
+                                  <User className="w-4 h-4" />
+                                ) : (
+                                  <Brain className="w-4 h-4" />
+                                )}
+                              </div>
+                              
+                              {/* Message Bubble */}
+                              <div className={`px-4 py-3 rounded-2xl shadow-sm ${
+                                message.type === 'human' || message.role === 'user'
+                                  ? 'bg-blue-500 text-white order-1'
+                                  : 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-600'
+                              }`}>
+                                <div className="text-sm leading-relaxed">
+                                  {message.content || message.message || message.response}
+                                </div>
+                                <div className={`text-xs mt-2 ${
+                                  message.type === 'human' || message.role === 'user'
+                                    ? 'text-blue-100'
+                                    : 'text-gray-500 dark:text-gray-400'
+                                }`}>
+                                  {message.timestamp ? formatDate(message.timestamp) : 'Timestamp yok'}
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        ))}
+                        
+                                                 <div className="text-center pt-4">
+                           <div className="text-xs text-gray-500 dark:text-gray-400">
+                             {(() => {
+                               const selectedSession = conversations.find(c => c.session_id === selectedConversation)
+                               if (selectedSession) {
+                                 const firstWords = selectedSession.first_message.split(' ').slice(0, 3).join(' ')
+                                 const date = new Date(selectedSession.created_at).toLocaleDateString('tr-TR')
+                                 return `${firstWords}... (${date})`
+                               }
+                               return `Session: ${selectedConversation?.substring(0, 8)}...`
+                             })()}
+                           </div>
+                         </div>
+                      </div>
+                    ) : selectedConversation ? (
+                      <div className="text-center py-8">
+                        <MessageCircle className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">
+                          Konuşma geçmişi yüklenemedi
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="text-center py-8">
+                        <Info className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">
+                          Detayları görüntülemek için bir konuşma seçin
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Upload Sessions */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 transition-colors">
+                <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                      Upload Sessions ({uploadSessions.length})
+                    </h3>
+                    <button
+                      onClick={fetchUploadSessions}
+                      className="flex items-center space-x-2 px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors text-sm"
+                      title="Upload sessions'ları yenile"
+                    >
+                      <RefreshCw className="h-4 w-4" />
+                      <span>Yenile</span>
+                    </button>
+                  </div>
+                </div>
+                
+                <div className="max-h-64 overflow-y-auto">
+                  {uploadSessions.length > 0 ? (
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead className="bg-gray-50 dark:bg-gray-700 sticky top-0">
+                          <tr>
+                            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Session ID</th>
+                            <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Dosya Sayısı</th>
+                            <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">İşlenen</th>
+                            <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Durum</th>
+                            <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tarih</th>
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                          {uploadSessions.map((session) => (
+                            <tr key={session.session_id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                              <td className="px-4 py-3 text-sm font-mono text-gray-600 dark:text-gray-400">
+                                {session.session_id.substring(0, 12)}...
+                              </td>
+                              <td className="px-3 py-3 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">{session.total_files}</td>
+                              <td className="px-3 py-3 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">{session.processed_files}</td>
+                              <td className="px-3 py-3 whitespace-nowrap">
+                                <div className={`inline-flex items-center space-x-1 px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(session.status)}`}>
+                                  {getStatusIcon(session.status)}
+                                  <span className="capitalize">{session.status}</span>
+                                </div>
+                              </td>
+                              <td className="px-3 py-3 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">{formatDate(session.started_at)}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <div className="text-center py-8">
+                      <Upload className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                      <p className="text-gray-500 dark:text-gray-400 text-sm">Henüz upload session bulunmuyor</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Enhanced Conversation Analytics */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-6 rounded-xl shadow-sm border border-blue-200 dark:border-blue-700 hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mb-1">Toplam Session</p>
+                      <p className="text-3xl font-bold text-blue-900 dark:text-blue-100">
+                        {conversations.length}
+                      </p>
+                      <p className="text-xs text-blue-500 dark:text-blue-400 mt-1">
+                        IP-based tracking
+                      </p>
+                    </div>
+                    <div className="p-3 bg-blue-500 text-white rounded-xl shadow-lg">
+                      <MessageCircle className="h-6 w-6" />
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 p-6 rounded-xl shadow-sm border border-green-200 dark:border-green-700 hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-green-600 dark:text-green-400 font-medium mb-1">Toplam Mesaj</p>
+                      <p className="text-3xl font-bold text-green-900 dark:text-green-100">
+                        {conversations.reduce((sum, conv) => sum + conv.message_count, 0)}
+                      </p>
+                      <p className="text-xs text-green-500 dark:text-green-400 mt-1">
+                        Ortalama: {conversations.length > 0 ? Math.round(conversations.reduce((sum, conv) => sum + conv.message_count, 0) / conversations.length) : 0} mesaj/session
+                      </p>
+                    </div>
+                    <div className="p-3 bg-green-500 text-white rounded-xl shadow-lg">
+                      <Brain className="h-6 w-6" />
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="bg-gradient-to-br from-yellow-50 to-orange-100 dark:from-yellow-900/20 dark:to-orange-800/20 p-6 rounded-xl shadow-sm border border-yellow-200 dark:border-yellow-700 hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-yellow-600 dark:text-yellow-400 font-medium mb-1">Aktif Session</p>
+                      <p className="text-3xl font-bold text-yellow-900 dark:text-yellow-100">
+                        {conversations.filter(c => c.status === 'active').length}
+                      </p>
+                      <p className="text-xs text-yellow-500 dark:text-yellow-400 mt-1">
+                        {conversations.length > 0 ? Math.round((conversations.filter(c => c.status === 'active').length / conversations.length) * 100) : 0}% aktif
+                      </p>
+                    </div>
+                    <div className="p-3 bg-yellow-500 text-white rounded-xl shadow-lg">
+                      <Activity className="h-6 w-6" />
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-6 rounded-xl shadow-sm border border-purple-200 dark:border-purple-700 hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-purple-600 dark:text-purple-400 font-medium mb-1">Bugün Yeni</p>
+                      <p className="text-3xl font-bold text-purple-900 dark:text-purple-100">
+                        {conversations.filter(c => {
+                          const today = new Date()
+                          const sessionDate = new Date(c.created_at)
+                          return sessionDate.toDateString() === today.toDateString()
+                        }).length}
+                      </p>
+                      <p className="text-xs text-purple-500 dark:text-purple-400 mt-1">
+                        Son 24 saat
+                      </p>
+                    </div>
+                    <div className="p-3 bg-purple-500 text-white rounded-xl shadow-lg">
+                      <Calendar className="h-6 w-6" />
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Quick Actions Panel */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6"
+              >
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                  Session İstatistikleri
+                </h3>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Most Active Session */}
+                  <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 p-4 rounded-lg">
+                    <h4 className="text-sm font-medium text-indigo-600 dark:text-indigo-400 mb-2">En Aktif Session</h4>
+                    {(() => {
+                      const mostActive = conversations.reduce((max, conv) => 
+                        conv.message_count > (max?.message_count || 0) ? conv : max, null)
+                      return mostActive ? (
+                        <div>
+                          <p className="text-lg font-bold text-indigo-900 dark:text-indigo-100">
+                            {mostActive.message_count} mesaj
+                          </p>
+                          <p className="text-xs text-indigo-500 dark:text-indigo-400 font-mono">
+                            #{mostActive.session_id.substring(0, 8)}...
+                          </p>
+                        </div>
+                      ) : (
+                        <p className="text-sm text-indigo-500 dark:text-indigo-400">Henüz session yok</p>
+                      )
+                    })()}
+                  </div>
+
+                  {/* Recent Activity */}
+                  <div className="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 p-4 rounded-lg">
+                    <h4 className="text-sm font-medium text-teal-600 dark:text-teal-400 mb-2">Son Aktivite</h4>
+                    {(() => {
+                      const mostRecent = conversations.sort((a, b) => 
+                        new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())[0]
+                      return mostRecent ? (
+                        <div>
+                          <p className="text-lg font-bold text-teal-900 dark:text-teal-100">
+                            {Math.floor((Date.now() - new Date(mostRecent.updated_at).getTime()) / 60000)} dk önce
+                          </p>
+                          <p className="text-xs text-teal-500 dark:text-teal-400 font-mono">
+                            #{mostRecent.session_id.substring(0, 8)}...
+                          </p>
+                        </div>
+                      ) : (
+                        <p className="text-sm text-teal-500 dark:text-teal-400">Aktivite yok</p>
+                      )
+                    })()}
+                  </div>
+
+                  {/* Average Session Length */}
+                  <div className="bg-gradient-to-br from-rose-50 to-rose-100 dark:from-rose-900/20 dark:to-rose-800/20 p-4 rounded-lg">
+                    <h4 className="text-sm font-medium text-rose-600 dark:text-rose-400 mb-2">Ortalama Session Süresi</h4>
+                    {(() => {
+                      const avgDuration = conversations.length > 0 
+                        ? conversations.reduce((sum, conv) => {
+                            const duration = new Date(conv.updated_at).getTime() - new Date(conv.created_at).getTime()
+                            return sum + duration
+                          }, 0) / conversations.length / 60000 // minutes
+                        : 0
+                      return (
+                        <div>
+                          <p className="text-lg font-bold text-rose-900 dark:text-rose-100">
+                            {Math.round(avgDuration)} dakika
+                          </p>
+                          <p className="text-xs text-rose-500 dark:text-rose-400">
+                            Ortalama süre
+                          </p>
+                        </div>
+                      )
+                    })()}
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

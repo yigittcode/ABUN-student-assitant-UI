@@ -21,6 +21,32 @@ export interface ChatResponse {
   timestamp: string;
 }
 
+// Memory Chat Types
+export interface ConversationChatMessage {
+  message: string;
+  session_id?: string | null;
+  start_new_conversation?: boolean;
+}
+
+export interface ConversationChatResponse {
+  response: string;
+  sources: Array<{ [key: string]: string }>;
+  timestamp: string;
+  session_id: string;
+  message_count: number;
+  is_new_conversation: boolean;
+}
+
+export interface ConversationSession {
+  session_id: string;
+  created_at: string;
+  updated_at: string;
+  message_count: number;
+  status: string;
+  first_message: string;
+  last_message: string;
+}
+
 export interface DocumentInfo {
   id: string;
   file_name: string;

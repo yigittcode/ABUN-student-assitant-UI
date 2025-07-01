@@ -8,9 +8,11 @@ interface VoiceAssistantProps {
   isOpen: boolean
   onClose: () => void
   isDark: boolean
+  isMemoryMode?: boolean
+  currentSessionId?: string | null
 }
 
-export default function VoiceAssistant({ isOpen, onClose, isDark }: VoiceAssistantProps) {
+export default function VoiceAssistant({ isOpen, onClose, isDark, isMemoryMode = false, currentSessionId = null }: VoiceAssistantProps) {
   const [isRecording, setIsRecording] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -265,8 +267,15 @@ export default function VoiceAssistant({ isOpen, onClose, isDark }: VoiceAssista
         type: audioBlob.type 
       })
       
-      const responseBlob = await speechService.speechToSpeech(audioFile, {
-        gender: selectedGender,
+      const responseBlob = isMemoryMode 
+        ? await speechService.speechToSpeechWithMemory(audioFile, {
+            session_id: currentSessionId,
+            start_new_conversation: false,
+            gender: selectedGender,
+            signal: abortControllerRef.current.signal
+          })
+        : await speechService.speechToSpeech(audioFile, {
+            gender: selectedGender,
         signal: abortControllerRef.current.signal
       })
       
@@ -492,6 +501,13 @@ export default function VoiceAssistant({ isOpen, onClose, isDark }: VoiceAssista
               isDark ? 'text-white/80' : 'text-gray-700'
             }`}>
               ABU Sesli Asistan
+              {isMemoryMode && (
+                <span className={`ml-2 text-sm px-2 py-1 rounded-full ${
+                  isDark ? 'bg-blue-500/20 text-blue-200' : 'bg-blue-100 text-blue-600'
+                }`}>
+                  🧠 Memory
+                </span>
+              )}
             </div>
             <div className={`text-4xl font-light tracking-wide ${
               isDark ? 'text-white' : 'text-gray-900'

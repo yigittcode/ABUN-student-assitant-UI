@@ -4,6 +4,9 @@ import type {
   LoginResponse,
   ChatMessage,
   ChatResponse,
+  ConversationChatMessage,
+  ConversationChatResponse,
+  ConversationSession,
   DocumentInfo,
   DocumentContent,
   DocumentDetails,
@@ -83,6 +86,44 @@ export const chatService = {
     return response.body!;
   },
 
+  // Memory Chat Methods
+  sendMessageWithMemory: async (message: ConversationChatMessage): Promise<ConversationChatResponse> => {
+    const response: AxiosResponse<ConversationChatResponse> = await api.post('/api/chat/memory', message);
+    return response.data;
+  },
+
+  sendMessageWithMemoryStream: async (message: ConversationChatMessage): Promise<ReadableStream> => {
+    const response = await fetch(`${API_BASE_URL}/api/chat/memory/stream`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(message)
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to get memory stream response');
+    }
+    
+    return response.body!;
+  },
+
+  testMemoryVsNormal: async (message: ConversationChatMessage): Promise<any> => {
+    const response = await fetch(`${API_BASE_URL}/api/chat/memory/test`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(message)
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to test memory vs normal');
+    }
+    
+    return response.json();
+  },
+
   getChatHistory: async (limit: number = 50): Promise<ChatHistoryItem[]> => {
     const response: AxiosResponse<ChatHistoryItem[]> = await api.get(`/api/chat/history?limit=${limit}`);
     return response.data;
@@ -90,6 +131,119 @@ export const chatService = {
 
   clearChatHistory: async (): Promise<void> => {
     await api.delete('/api/chat/history');
+  },
+};
+
+export const conversationService = {
+  // Admin-only endpoints
+  getConversations: async (limit: number = 20): Promise<ConversationSession[]> => {
+    const response: AxiosResponse<ConversationSession[]> = await api.get(`/api/conversations?limit=${limit}`);
+    return response.data;
+  },
+
+  closeConversation: async (sessionId: string, summary?: string): Promise<any> => {
+    const url = summary 
+      ? `/api/conversations/${sessionId}/close?summary=${encodeURIComponent(summary)}`
+      : `/api/conversations/${sessionId}/close`;
+    
+    const response: AxiosResponse<any> = await api.post(url);
+    return response.data;
+  },
+
+  cleanupConversations: async (daysOld: number = 30, inactiveDays: number = 7): Promise<any> => {
+    const response: AxiosResponse<any> = await api.delete(`/api/conversations?days_old=${daysOld}&inactive_days=${inactiveDays}`);
+    return response.data;
+  },
+
+  // Public endpoints
+  getConversationHistory: async (sessionId: string, limit: number = 50): Promise<any> => {
+    try {
+      console.log(`🔄 Loading conversation history for session: ${sessionId}`);
+      const response = await fetch(`${API_BASE_URL}/api/conversations/${sessionId}/history?limit=${limit}`);
+      
+      if (!response.ok) {
+        console.error(`❌ Failed to load conversation history: ${response.status} ${response.statusText}`);
+        throw new Error(`Failed to get conversation history: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log(`✅ Conversation history loaded:`, data);
+      return data;
+    } catch (error) {
+      console.error('❌ Error in getConversationHistory:', error);
+      throw error;
+    }
+  },
+
+  // NEW: User session management endpoints (IP-based)
+  getMyConversations: async (limit: number = 20): Promise<ConversationSession[]> => {
+    try {
+      console.log(`🔄 Loading my conversations (limit: ${limit})`);
+      const response = await fetch(`${API_BASE_URL}/api/my-conversations?limit=${limit}`);
+      
+      if (!response.ok) {
+        console.error(`❌ Failed to load my conversations: ${response.status} ${response.statusText}`);
+        throw new Error(`Failed to get my conversations: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log(`✅ My conversations loaded:`, data);
+      
+      // Handle different response format from public endpoint
+      if (data.sessions && Array.isArray(data.sessions)) {
+        return data.sessions; // Public endpoint format: { sessions: [...] }
+      } else if (Array.isArray(data)) {
+        return data; // Admin endpoint format: [...]
+      } else {
+        console.error('❌ Unexpected response format:', data);
+        return [];
+      }
+    } catch (error) {
+      console.error('❌ Error in getMyConversations:', error);
+      throw error;
+    }
+  },
+
+  deleteSession: async (sessionId: string): Promise<any> => {
+    try {
+      console.log(`🗑️ Deleting session: ${sessionId}`);
+      const response = await fetch(`${API_BASE_URL}/api/conversations/${sessionId}`, {
+        method: 'DELETE'
+      });
+      
+      if (!response.ok) {
+        console.error(`❌ Failed to delete session: ${response.status} ${response.statusText}`);
+        throw new Error(`Failed to delete session: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log(`✅ Session deleted:`, data);
+      return data;
+    } catch (error) {
+      console.error('❌ Error in deleteSession:', error);
+      throw error;
+    }
+  },
+
+  deleteAllMySessions: async (confirm: boolean = false): Promise<any> => {
+    try {
+      console.log(`🗑️ Deleting all my sessions (confirm: ${confirm})`);
+      const response = await fetch(`${API_BASE_URL}/api/my-conversations?confirm=${confirm}`, {
+        method: 'DELETE'
+      });
+      
+      if (!response.ok) {
+        console.error(`❌ Failed to delete all sessions: ${response.status} ${response.statusText}`);
+        throw new Error(`Failed to delete all sessions: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log(`✅ All sessions deleted:`, data);
+      return data;
+    } catch (error) {
+      console.error('❌ Error in deleteAllMySessions:', error);
+      throw error;
+    }
   },
 };
 
@@ -200,6 +354,44 @@ export const speechService = {
 
     if (!response.ok) {
       throw new Error('Speech to speech failed');
+    }
+
+    return response.blob();
+  },
+
+  speechToSpeechWithMemory: async (audioFile: File, options?: { 
+    session_id?: string | null, 
+    start_new_conversation?: boolean,
+    voice?: string, 
+    gender?: string, 
+    language?: string, 
+    signal?: AbortSignal 
+  }): Promise<Blob> => {
+    const { 
+      session_id = null, 
+      start_new_conversation = false,
+      voice = 'tr-TR-EmelNeural', 
+      gender = 'female', 
+      language = 'tr', 
+      signal 
+    } = options || {};
+    
+    const formData = new FormData();
+    formData.append('audio_file', audioFile);
+    if (session_id) formData.append('session_id', session_id);
+    formData.append('start_new_conversation', start_new_conversation.toString());
+    formData.append('voice', voice);
+    formData.append('gender', gender);
+    formData.append('language', language);
+
+    const response = await fetch(`${API_BASE_URL}/api/speech-to-speech/memory`, {
+      method: 'POST',
+      body: formData,
+      signal
+    });
+
+    if (!response.ok) {
+      throw new Error('Memory speech to speech failed');
     }
 
     return response.blob();

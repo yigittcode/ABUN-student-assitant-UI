@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Mic, MicOff, Volume2, VolumeX, Loader2, X, Phone, Headphones } from 'lucide-react'
+import { Mic, MicOff, Volume2, VolumeX, Loader2, X, Phone, Headphones, User, UserX } from 'lucide-react'
 import { speechService } from '../services/api'
 import toast from 'react-hot-toast'
 
@@ -18,6 +18,7 @@ export default function VoiceAssistant({ isOpen, onClose, isDark }: VoiceAssista
   const [recordingTime, setRecordingTime] = useState(0)
   const [isInitializing, setIsInitializing] = useState(false)
   const [waveformData, setWaveformData] = useState<number[]>(new Array(20).fill(0))
+  const [selectedGender, setSelectedGender] = useState<'female' | 'male'>('female')
   
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
   const audioContextRef = useRef<AudioContext | null>(null)
@@ -265,6 +266,7 @@ export default function VoiceAssistant({ isOpen, onClose, isDark }: VoiceAssista
       })
       
       const responseBlob = await speechService.speechToSpeech(audioFile, {
+        gender: selectedGender,
         signal: abortControllerRef.current.signal
       })
       
@@ -446,6 +448,38 @@ export default function VoiceAssistant({ isOpen, onClose, isDark }: VoiceAssista
           >
             <X className="w-6 h-6" />
           </motion.button>
+
+          {/* Gender Selection - Compact Toggle */}
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1 }}
+            className="absolute top-8 left-8"
+          >
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setSelectedGender(selectedGender === 'female' ? 'male' : 'female')}
+              className={`relative p-3 rounded-full backdrop-blur-md transition-all duration-300 ${
+                isDark 
+                  ? 'bg-white/10 hover:bg-white/20 border border-white/20' 
+                  : 'bg-black/10 hover:bg-black/20 border border-black/20'
+              }`}
+              title={selectedGender === 'female' ? 'Kadın Ses (Erkek sese geç)' : 'Erkek Ses (Kadın sese geç)'}
+            >
+              <div className="text-xl">
+                {selectedGender === 'female' ? '👩‍🎤' : '👨‍🎤'}
+              </div>
+              {/* Small indicator dot */}
+              <div className={`absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2 ${
+                isDark ? 'border-slate-800' : 'border-white'
+              } ${
+                selectedGender === 'female'
+                  ? 'bg-pink-400'
+                  : 'bg-blue-400'
+              }`} />
+            </motion.button>
+          </motion.div>
 
           {/* Top Status */}
           <motion.div 

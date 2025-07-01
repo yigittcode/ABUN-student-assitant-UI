@@ -180,12 +180,13 @@ export const systemService = {
 };
 
 export const speechService = {
-  speechToSpeech: async (audioFile: File, options?: { voice?: string, language?: string, signal?: AbortSignal }): Promise<Blob> => {
-    const { voice = 'tr-TR-EmelNeural', language = 'tr', signal } = options || {};
+  speechToSpeech: async (audioFile: File, options?: { voice?: string, gender?: string, language?: string, signal?: AbortSignal }): Promise<Blob> => {
+    const { voice = 'tr-TR-EmelNeural', gender = 'female', language = 'tr', signal } = options || {};
     
     const formData = new FormData();
     formData.append('audio_file', audioFile);
     formData.append('voice', voice);
+    formData.append('gender', gender);
     formData.append('language', language);
 
     const response = await fetch(`${API_BASE_URL}/api/speech-to-speech`, {
@@ -204,12 +205,13 @@ export const speechService = {
     return response.blob();
   },
 
-  textToSpeech: async (text: string, options?: { voice?: string, signal?: AbortSignal }): Promise<Blob> => {
-    const { voice = 'tr-TR-EmelNeural', signal } = options || {};
+  textToSpeech: async (text: string, options?: { voice?: string, gender?: string, signal?: AbortSignal }): Promise<Blob> => {
+    const { voice = 'tr-TR-EmelNeural', gender = 'female', signal } = options || {};
     
     const formData = new FormData();
     formData.append('text', text);
     formData.append('voice', voice);
+    formData.append('gender', gender);
 
     const response = await fetch(`${API_BASE_URL}/api/text-to-speech`, {
       method: 'POST',

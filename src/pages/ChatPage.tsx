@@ -834,34 +834,43 @@ export default function ChatPage() {
                       const isCurrentSession = session.session_id === currentSessionId
                       
                       return (
-                        <motion.div
+                                                <motion.div
                           key={session.session_id}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.05 }}
-                          className={`p-4 rounded-xl border cursor-pointer transition-all duration-200 ${
+                          className={`rounded-xl border transition-all duration-200 ${
                             isCurrentSession
                               ? isDark
                                 ? 'bg-blue-900/30 border-blue-500/50 shadow-lg'
                                 : 'bg-blue-50 border-blue-200 shadow-md'
                               : isDark
-                                ? 'bg-navy-800 border-navy-600 hover:bg-navy-700'
-                                : 'bg-gray-50 border-gray-200 hover:bg-gray-100'
+                                ? 'bg-navy-800 border-navy-600'
+                                : 'bg-gray-50 border-gray-200'
                           }`}
-                          onClick={async () => {
-                            if (!isCurrentSession) {
-                              try {
-                                await switchToSession(session.session_id)
-                                toast.success(`"${sessionName}" konuşmasına geçildi`)
-                                setShowSessionHistory(false)
-                              } catch (error) {
-                                toast.error('Konuşma geçişi başarısız')
-                              }
-                            }
-                          }}
                         >
-                          <div className="flex items-start justify-between">
-                            <div className="flex-1 min-w-0">
+                          <div className="flex items-start">
+                            {/* Clickable Content Area */}
+                            <div 
+                              className={`flex-1 p-4 transition-all duration-200 ${
+                                !isCurrentSession 
+                                  ? isDark
+                                    ? 'hover:bg-navy-700 cursor-pointer'
+                                    : 'hover:bg-gray-100 cursor-pointer'
+                                  : ''
+                              }`}
+                              onClick={async () => {
+                                if (!isCurrentSession) {
+                                  try {
+                                    await switchToSession(session.session_id)
+                                    toast.success(`"${sessionName}" konuşmasına geçildi`)
+                                    setShowSessionHistory(false)
+                                  } catch (error) {
+                                    toast.error('Konuşma geçişi başarısız')
+                                  }
+                                }
+                              }}
+                            >
                               <div className="flex items-center gap-2 mb-2">
                                 {isCurrentSession && (
                                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
@@ -901,11 +910,19 @@ export default function ChatPage() {
                               </div>
                             </div>
                             
-                            <div className="flex items-center gap-1 ml-4">
+                            {/* Non-clickable Action Area */}
+                            <div className="flex items-center p-4">
                               {!isCurrentSession && (
                                 <button
+                                  className={`p-2 rounded-lg transition-colors ${
+                                    isDark 
+                                      ? 'hover:bg-red-900/30 text-red-400' 
+                                      : 'hover:bg-red-100 text-red-600'
+                                  }`}
                                   onClick={async (e) => {
+                                    e.preventDefault()
                                     e.stopPropagation()
+                                    
                                     if (confirm(`"${sessionName}" konuşmasını silmek istediğinizden emin misiniz?`)) {
                                       try {
                                         await deleteMySession(session.session_id)
@@ -915,11 +932,6 @@ export default function ChatPage() {
                                       }
                                     }
                                   }}
-                                  className={`p-2 rounded-lg transition-colors ${
-                                    isDark 
-                                      ? 'hover:bg-red-900/30 text-red-400' 
-                                      : 'hover:bg-red-100 text-red-600'
-                                  }`}
                                   title="Konuşmayı sil"
                                 >
                                   <Trash2 className="w-4 h-4" />
@@ -967,27 +979,30 @@ export default function ChatPage() {
                       <span>Yeni Konuşma Başlat</span>
                     </button>
                     
-                    <button
-                      onClick={async () => {
-                        if (confirm('TÜM konuşmalarınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz!')) {
-                          try {
-                            await deleteAllMySessions()
-                            toast.success('Tüm konuşmalar silindi')
-                            setShowSessionHistory(false)
-                          } catch (error) {
-                            toast.error('Konuşmalar silinemedi')
-                          }
-                        }
-                      }}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-                        isDark 
-                          ? 'text-red-400 hover:bg-red-900/30' 
-                          : 'text-red-600 hover:bg-red-100'
-                      }`}
-                    >
-                      <Trash2 className="w-4 h-4" />
-                      <span>Tümünü Sil</span>
-                    </button>
+                                         <button
+                       className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                         isDark 
+                           ? 'text-red-400 hover:bg-red-900/30' 
+                           : 'text-red-600 hover:bg-red-100'
+                       }`}
+                       onClick={async (e) => {
+                         e.preventDefault()
+                         e.stopPropagation()
+                         
+                         if (confirm('TÜM konuşmalarınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz!')) {
+                           try {
+                             await deleteAllMySessions()
+                             toast.success('Tüm konuşmalar silindi')
+                             setShowSessionHistory(false)
+                           } catch (error) {
+                             toast.error('Konuşmalar silinemedi')
+                           }
+                         }
+                       }}
+                     >
+                       <Trash2 className="w-4 h-4" />
+                       <span>Tümünü Sil</span>
+                     </button>
                   </div>
                 </div>
               )}

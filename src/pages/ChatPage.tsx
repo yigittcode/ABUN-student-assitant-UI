@@ -252,6 +252,7 @@ export default function ChatPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              style={{ willChange: 'transform' }}
               className="flex justify-start"
             >
               <div className="flex gap-3 max-w-[80%]">
@@ -262,14 +263,28 @@ export default function ChatPage() {
                     isDark ? 'text-navy-300' : 'text-navy-600'
                   }`} />
                 </div>
-                <div className={`px-4 py-3 rounded-2xl ${
-                  isDark ? 'bg-navy-800 text-navy-100' : 'bg-white text-navy-900 border border-navy-200'
-                }`}>
-                  <p className="text-sm leading-relaxed">
+                <div 
+                  className={`px-4 py-3 rounded-2xl ${
+                    isDark ? 'bg-navy-800 text-navy-100' : 'bg-white text-navy-900 border border-navy-200'
+                  }`}
+                  style={{ 
+                    willChange: 'contents',
+                    contain: 'layout style paint'
+                  }}
+                >
+                  <p className="text-sm leading-relaxed whitespace-pre-wrap">
                     {streamingMessage}
                     <motion.span
                       animate={{ opacity: [1, 0] }}
-                      transition={{ duration: 0.8, repeat: Infinity }}
+                      transition={{ 
+                        duration: 0.6, 
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      style={{
+                        willChange: 'opacity',
+                        transform: 'translateZ(0)'
+                      }}
                       className="inline-block w-2 h-4 bg-current ml-1 rounded-sm"
                     />
                   </p>

@@ -68,7 +68,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
       const decoder = new TextDecoder();
       let fullResponse = '';
       let hasAddedFinalMessage = false;
-      let pendingContent = '';
+      let animationFrameId: number | null = null;
       
       // Helper function to decode escape sequences
       const decodeEscapeSequences = (str: string): string => {
@@ -83,29 +83,34 @@ export const useChatStore = create<ChatState>((set, get) => ({
           .replace(/\\\\/g, '\\');
       };
       
-      // Throttled update function with requestAnimationFrame
-      let updateScheduled = false;
-      const updateStreamingMessage = (content: string) => {
-        if (!updateScheduled) {
-          updateScheduled = true;
-          requestAnimationFrame(() => {
-            flushSync(() => {
-              set({ streamingMessage: content });
-            });
-            updateScheduled = false;
-          });
+      // Smooth update function using requestAnimationFrame
+      const smoothUpdate = (content: string) => {
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
         }
+        
+        animationFrameId = requestAnimationFrame(() => {
+          set({ streamingMessage: content });
+          animationFrameId = null;
+        });
       };
       
       while (true) {
         const { done, value } = await reader.read();
         
         if (done) {
-          // Stream ended, add the complete message
-          get().addMessage({ 
-            content: fullResponse, 
-            role: 'assistant' 
-          });
+          // Final update with complete content
+          const finalContent = decodeEscapeSequences(fullResponse);
+          set({ streamingMessage: finalContent });
+          
+          // Ensure final message is added only once
+          if (finalContent.trim() && !hasAddedFinalMessage) {
+            get().addMessage({ 
+              content: finalContent, 
+              role: 'assistant' 
+            });
+            hasAddedFinalMessage = true;
+          }
           
           // Clear streaming state
           set({ 
@@ -118,11 +123,19 @@ export const useChatStore = create<ChatState>((set, get) => ({
         
         // Decode the chunk
         const chunk = decoder.decode(value, { stream: true });
+        
+        // Split by lines and process each line
         const lines = chunk.split('\n');
         
         for (const line of lines) {
-          if (line.trim().startsWith('data: ')) {
-            const jsonData = line.replace('data: ', '').trim();
+          const trimmedLine = line.trim();
+          
+          // Skip empty lines
+          if (!trimmedLine) continue;
+          
+          // Handle SSE format: "data: {...}"
+          if (trimmedLine.startsWith('data: ')) {
+            const jsonData = trimmedLine.substring(6); // Remove "data: " prefix
             
             // Handle [DONE] message
             if (jsonData === '[DONE]') {
@@ -132,25 +145,140 @@ export const useChatStore = create<ChatState>((set, get) => ({
             try {
               const data = JSON.parse(jsonData);
               
-              if (data.type === 'content' && !data.done) {
-                fullResponse += data.content;
+              // Handle content chunks
+              if (data.type === 'content' && data.content !== undefined && !data.done) {
+                // Check if content is double-encoded JSON string
+                let actualContent = data.content;
+                
+                // Try to parse content as JSON if it's a string containing JSON
+                if (typeof data.content === 'string' && data.content.includes('"type":')) {
+                  try {
+                    const parsedContent = JSON.parse(data.content);
+                    if (parsedContent.type === 'content' && parsedContent.content !== undefined) {
+                      actualContent = parsedContent.content;
+                    }
+                  } catch (e) {
+                    // If parsing fails, use the original content
+                    actualContent = data.content;
+                  }
+                }
+                
+                // Skip if actualContent looks like raw JSON
+                if (typeof actualContent === 'string' && actualContent.startsWith('{"type"')) {
+                  continue;
+                }
+                
+                fullResponse += actualContent;
                 
                 // Only set loading to false once we start getting content
                 if (fullResponse.length > 0) {
                   set({ isLoading: false });
                 }
                 
-                set((state) => ({
-                  streamingMessage: fullResponse
-                }));
-              } else if (data.type === 'complete') {
-                // Use the complete response from backend
-                fullResponse = data.formatted_response || fullResponse;
+                // Update streaming message immediately with smooth animation
+                smoothUpdate(decodeEscapeSequences(fullResponse));
+              } 
+              // Handle completion
+              else if (data.type === 'complete' && data.done) {
+                // Use the complete response if provided, otherwise use accumulated response
+                if (data.full_response) {
+                  // Check if full_response is double-encoded JSON string
+                  let actualResponse = data.full_response;
+                  
+                  // Try to parse full_response as JSON if it contains streaming data
+                  if (typeof data.full_response === 'string' && data.full_response.includes('"type":')) {
+                    try {
+                      // This might be a concatenated JSON string, try to extract the actual response
+                      const regex = /"full_response":\s*"([^"]*(?:\\.[^"]*)*)"/;
+                      const match = data.full_response.match(regex);
+                      if (match && match[1]) {
+                        // Decode the escaped string
+                        actualResponse = decodeEscapeSequences(match[1]);
+                      }
+                    } catch (e) {
+                      // If parsing fails, use the original response
+                      actualResponse = data.full_response;
+                    }
+                  }
+                  
+                  fullResponse = actualResponse;
+                }
+                
+                // Don't add message here, let the done handler do it
                 set({ isLoading: false });
                 break;
               }
-            } catch (e) {
-              console.warn('Failed to parse JSON line:', line, e);
+            } catch (parseError) {
+              console.warn('Failed to parse streaming JSON:', jsonData, parseError);
+              // Continue processing other lines
+            }
+          }
+          // Handle lines that don't start with "data: " (might be direct JSON)
+          else if (trimmedLine.startsWith('{') && trimmedLine.endsWith('}')) {
+            try {
+              const data = JSON.parse(trimmedLine);
+              
+              if (data.type === 'content' && data.content !== undefined && !data.done) {
+                // Check if content is double-encoded JSON string
+                let actualContent = data.content;
+                
+                // Try to parse content as JSON if it's a string containing JSON
+                if (typeof data.content === 'string' && data.content.includes('"type":')) {
+                  try {
+                    const parsedContent = JSON.parse(data.content);
+                    if (parsedContent.type === 'content' && parsedContent.content !== undefined) {
+                      actualContent = parsedContent.content;
+                    }
+                  } catch (e) {
+                    // If parsing fails, use the original content
+                    actualContent = data.content;
+                  }
+                }
+                
+                // Skip if actualContent looks like raw JSON
+                if (typeof actualContent === 'string' && actualContent.startsWith('{"type"')) {
+                  continue;
+                }
+                
+                fullResponse += actualContent;
+                
+                if (fullResponse.length > 0) {
+                  set({ isLoading: false });
+                }
+                
+                // Update streaming message immediately with smooth animation
+                smoothUpdate(decodeEscapeSequences(fullResponse));
+              } 
+              else if (data.type === 'complete' && data.done) {
+                if (data.full_response) {
+                  // Check if full_response is double-encoded JSON string
+                  let actualResponse = data.full_response;
+                  
+                  // Try to parse full_response as JSON if it contains streaming data
+                  if (typeof data.full_response === 'string' && data.full_response.includes('"type":')) {
+                    try {
+                      // This might be a concatenated JSON string, try to extract the actual response
+                      const regex = /"full_response":\s*"([^"]*(?:\\.[^"]*)*)"/;
+                      const match = data.full_response.match(regex);
+                      if (match && match[1]) {
+                        // Decode the escaped string
+                        actualResponse = decodeEscapeSequences(match[1]);
+                      }
+                    } catch (e) {
+                      // If parsing fails, use the original response
+                      actualResponse = data.full_response;
+                    }
+                  }
+                  
+                  fullResponse = actualResponse;
+                }
+                
+                // Don't add message here, let the done handler do it
+                set({ isLoading: false });
+                break;
+              }
+            } catch (parseError) {
+              console.warn('Failed to parse direct JSON:', trimmedLine, parseError);
             }
           }
         }

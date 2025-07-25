@@ -26,7 +26,7 @@
     "/health": {
       "get": {
         "summary": "Health Check",
-        "description": "Health check endpoint with GPU information",
+        "description": "Health check endpoint",
         "operationId": "health_check_health_get",
         "responses": {
           "200": {
@@ -635,7 +635,7 @@
     "/api/speech/voices": {
       "get": {
         "summary": "Get Speech Voices",
-        "description": "Mevcut sesleri ve gender seçeneklerini listele",
+        "description": "Mevcut sesleri listele",
         "operationId": "get_speech_voices_api_speech_voices_get",
         "responses": {
           "200": {
@@ -649,37 +649,17 @@
         }
       }
     },
-    "/api/chat/compare": {
+    "/api/admin/clear-cache": {
       "post": {
-        "summary": "Compare Performance",
-        "description": "🚀 Performance comparison: Original vs Optimized RAG systems",
-        "operationId": "compare_performance_api_chat_compare_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChatMessage"
-              }
-            }
-          },
-          "required": true
-        },
+        "summary": "Clear System Cache",
+        "description": "Clear all system caches for debugging",
+        "operationId": "clear_system_cache_api_admin_clear_cache_post",
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
               }
             }
           }
@@ -691,37 +671,17 @@
         ]
       }
     },
-    "/api/voice/compare": {
-      "post": {
-        "summary": "Compare Voice Responses",
-        "description": "🎤 Voice vs Text Response comparison - Test voice enhancement",
-        "operationId": "compare_voice_responses_api_voice_compare_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ChatMessage"
-              }
-            }
-          },
-          "required": true
-        },
+    "/api/admin/cache-status": {
+      "get": {
+        "summary": "Get Cache Status",
+        "description": "Get current cache status and hit rates",
+        "operationId": "get_cache_status_api_admin_cache_status_get",
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
               }
             }
           }
@@ -748,11 +708,6 @@
             "title": "Voice",
             "default": "tr-TR-EmelNeural"
           },
-          "gender": {
-            "type": "string",
-            "title": "Gender",
-            "default": "female"
-          },
           "language": {
             "type": "string",
             "title": "Language",
@@ -775,11 +730,6 @@
             "type": "string",
             "title": "Voice",
             "default": "tr-TR-EmelNeural"
-          },
-          "gender": {
-            "type": "string",
-            "title": "Gender",
-            "default": "female"
           }
         },
         "type": "object",

@@ -66,8 +66,35 @@ export const useChatStore = create<ChatState>((set, get) => ({
       const reader = stream.getReader();
       const decoder = new TextDecoder();
       let fullResponse = '';
+      let hasAddedFinalMessage = false;
+      let pendingContent = '';
       
-      // Keep loading true until we get substantial content
+      // Helper function to decode escape sequences
+      const decodeEscapeSequences = (str: string): string => {
+        return str
+          .replace(/\\n/g, '\n')
+          .replace(/\\r/g, '\r')
+          .replace(/\\t/g, '\t')
+          .replace(/\\u([0-9a-fA-F]{4})/g, (match, code) => 
+            String.fromCharCode(parseInt(code, 16))
+          )
+          .replace(/\\"/g, '"')
+          .replace(/\\\\/g, '\\');
+      };
+      
+      // Throttled update function with requestAnimationFrame
+      let updateScheduled = false;
+      const updateStreamingMessage = (content: string) => {
+        if (!updateScheduled) {
+          updateScheduled = true;
+          requestAnimationFrame(() => {
+            flushSync(() => {
+              set({ streamingMessage: content });
+            });
+            updateScheduled = false;
+          });
+        }
+      };
       
       while (true) {
         const { done, value } = await reader.read();

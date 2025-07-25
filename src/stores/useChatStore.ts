@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { ChatHistoryItem, ChatMessage, ChatResponse } from '../types';
 import { chatService } from '../services/api';
+import { flushSync } from 'react-dom';
 
 interface SimpleMessage {
   id: string;

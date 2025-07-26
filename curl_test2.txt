@@ -1,0 +1,48 @@
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"Bu\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" konuda\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bilgi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ver\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"em\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"em\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" l\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00fctfen\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" yaln\\u0131z\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ca\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Ankara\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Bil\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"im\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00dcniversitesi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ile\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ilgili\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" sor\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ular\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" sorun\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"complete\", \"content\": \"\", \"done\": true, \"full_response\": \"Bu konuda bilgi veremem, l\\u00fctfen yaln\\u0131zca Ankara Bilim \\u00dcniversitesi ile ilgili sorular sorun.\"}", "done": false}
+
+data: {"type": "complete", "content": "", "done": true, "sources": [], "full_response": "{\"type\": \"content\", \"content\": \"\", \"done\": false}{\"type\": \"content\", \"content\": \"Bu\", \"done\": false}{\"type\": \"content\", \"content\": \" konuda\", \"done\": false}{\"type\": \"content\", \"content\": \" bilgi\", \"done\": false}{\"type\": \"content\", \"content\": \" ver\", \"done\": false}{\"type\": \"content\", \"content\": \"em\", \"done\": false}{\"type\": \"content\", \"content\": \"em\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" l\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00fctfen\", \"done\": false}{\"type\": \"content\", \"content\": \" yaln\\u0131z\", \"done\": false}{\"type\": \"content\", \"content\": \"ca\", \"done\": false}{\"type\": \"content\", \"content\": \" Ankara\", \"done\": false}{\"type\": \"content\", \"content\": \" Bil\", \"done\": false}{\"type\": \"content\", \"content\": \"im\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00dcniversitesi\", \"done\": false}{\"type\": \"content\", \"content\": \" ile\", \"done\": false}{\"type\": \"content\", \"content\": \" ilgili\", \"done\": false}{\"type\": \"content\", \"content\": \" sor\", \"done\": false}{\"type\": \"content\", \"content\": \"ular\", \"done\": false}{\"type\": \"content\", \"content\": \" sorun\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"complete\", \"content\": \"\", \"done\": true, \"full_response\": \"Bu konuda bilgi veremem, l\\u00fctfen yaln\\u0131zca Ankara Bilim \\u00dcniversitesi ile ilgili sorular sorun.\"}", "timestamp": "2025-07-26T12:29:17.161637"}
+

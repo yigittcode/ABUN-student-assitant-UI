@@ -1,0 +1,786 @@
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"An\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"kara\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Bil\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"im\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00dcniversitesi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"'\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"nde\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" i\\u015fle\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"mleri\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" i\\u00e7in\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00e7e\\u015fitli\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" y\\u00f6ntem\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ler\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bulunmaktad\\u0131r\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00d6\\u011f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"r\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"enc\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"iler\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" e\\u011fitim\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00fccret\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"lerini\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" y\\u0131ll\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u0131k\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" pe\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u015f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"in\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" d\\u00f6nem\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"lik\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" veya\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" tak\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"sit\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"li\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" se\\u00e7enek\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"leri\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ile\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ger\\u00e7ekle\\u015ft\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ire\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"bilir\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ler\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Y\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u0131ll\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u0131k\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" pe\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u015f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"in\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" se\\u00e7\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ene\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u011fi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" belirtil\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"en\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" tari\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"hler\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"de\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" %\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"10\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ind\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"irim\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"li\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" olarak\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" sun\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ul\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"maktad\\u0131r\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" D\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00f6n\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"em\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"lik\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"dem\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"eler\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ise\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" iki\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" e\\u015f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"it\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" tak\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"sit\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u015fekl\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"inde\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" yap\\u0131l\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"abilir\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ve\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bu\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"dem\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"elerde\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" pe\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u015f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"in\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ind\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"irim\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" uygulan\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"mam\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"aktad\\u0131r\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" T\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"aks\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"it\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"li\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" im\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"kan\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" anla\\u015f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"mal\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bank\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"alar\\u0131n\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" sund\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"u\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u011fu\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" okul\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" kred\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"isi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" (\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"KM\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"H\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \")\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00fcr\\u00fcn\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"leri\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" arac\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u0131l\\u0131\\u011f\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"yla\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" sa\\u011f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"lan\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"maktad\\u0131r\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" An\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"la\\u015f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"mal\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bank\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"alar\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" aras\\u0131nda\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Vak\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"bank\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" T\\u00fcrk\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Ek\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"onomi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Bank\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"as\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" (\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"TE\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"B\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \")\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ve\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Al\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"bar\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"akat\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00fcrk\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bulunmaktad\\u0131r\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\n\\n\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00d6\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"dem\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"eler\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" i\\u00e7in\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" kullan\\u0131l\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"acak\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" banka\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bilg\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ileri\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ise\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u015fu\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u015fek\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ild\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"edir\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \":\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" T\\u00fcrk\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Ek\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"onomi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Bank\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"as\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" (\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"TE\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"B\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"),\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" hesap\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ad\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Ankara\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Bil\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"im\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00dcniversitesi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" hesap\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" num\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"aras\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"103\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"855\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"339\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ve\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" IB\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"AN\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" num\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"aras\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" TR\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"84\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"000\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"3\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"200\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"0\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"000\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"0\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"010\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"3\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"855\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"3\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"39\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"'d\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ur\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Pe\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u015f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"in\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" veya\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" d\\u00f6nem\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"lik\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"dem\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"eler\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" i\\u00e7in\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bu\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" hes\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"aba\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" hav\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ale\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" veya\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" EFT\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" yap\\u0131l\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"abilir\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Ayr\\u0131ca\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" kredi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" kart\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ile\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" i\\u015fle\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"mleri\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" yaln\\u0131z\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ca\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00fcn\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ivers\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"iten\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"in\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" online\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" tah\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"sil\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"at\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" sistemi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00fczerinden\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ger\\u00e7ekle\\u015ftir\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ile\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"b\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ilm\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ektedir\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \";\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" burada\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" da\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" tak\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"sit\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" se\\u00e7\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ene\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u011fi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" yok\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"tur\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ve\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"dem\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"eler\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" tek\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00e7ek\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"im\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" olarak\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" al\\u0131n\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"maktad\\u0131r\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Fiz\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"iki\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" olarak\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" kamp\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00fcs\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" i\\u00e7inde\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" kredi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" kart\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ile\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" yap\\u0131l\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"mam\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"aktad\\u0131r\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00d6\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"dem\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"elerin\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" a\\u00e7\\u0131kl\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ama\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" k\\u0131sm\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u0131nda\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ise\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\\"\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00d6\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u011f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"r\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"enci\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Ad\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Soy\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ad\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" T\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".C\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Kim\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"lik\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" N\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"umar\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"as\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ve\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"202\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"4\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"-\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"202\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"5\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" E\\u011fitim\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Bed\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"eli\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\\"\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bilg\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ileri\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" eks\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"iks\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"iz\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bir\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u015fekilde\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" belirtil\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"mel\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"idir\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" [\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"Kay\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"nak\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \":\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" od\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"eme\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"-k\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ay\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"it\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \".pdf\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \",\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" B\\u00f6l\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00fcm\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \":\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" B\\u00f6l\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00fcm\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"1\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \":\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00d6\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"deme\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ve\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Finans\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"al\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u0130\\u015f\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"le\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"mler\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" (\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"B\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00f6l\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00fcm\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"1\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \")].\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"complete\", \"content\": \"\", \"done\": true, \"full_response\": \"Ankara Bilim \\u00dcniversitesi'nde \\u00f6deme i\\u015flemleri i\\u00e7in \\u00e7e\\u015fitli y\\u00f6ntemler bulunmaktad\\u0131r. \\u00d6\\u011frenciler, e\\u011fitim \\u00fccretlerini y\\u0131ll\\u0131k pe\\u015fin, d\\u00f6nemlik veya taksitli \\u00f6deme se\\u00e7enekleri ile ger\\u00e7ekle\\u015ftirebilirler. Y\\u0131ll\\u0131k pe\\u015fin \\u00f6deme se\\u00e7ene\\u011fi, belirtilen tarihlerde %10 indirimli olarak sunulmaktad\\u0131r. D\\u00f6nemlik \\u00f6demeler ise iki e\\u015fit taksit \\u015feklinde yap\\u0131labilir ve bu \\u00f6demelerde pe\\u015fin indirim uygulanmamaktad\\u0131r. Taksitli \\u00f6deme imkan\\u0131, anla\\u015fmal\\u0131 bankalar\\u0131n sundu\\u011fu okul kredisi (KMH) \\u00fcr\\u00fcnleri arac\\u0131l\\u0131\\u011f\\u0131yla sa\\u011flanmaktad\\u0131r. Anla\\u015fmal\\u0131 bankalar aras\\u0131nda Vak\\u0131fbank, T\\u00fcrk Ekonomi Bankas\\u0131 (TEB) ve Albarakat\\u00fcrk bulunmaktad\\u0131r. \\n\\n\\u00d6demeler i\\u00e7in kullan\\u0131lacak banka bilgileri ise \\u015fu \\u015fekildedir: T\\u00fcrk Ekonomi Bankas\\u0131 (TEB), hesap ad\\u0131 Ankara Bilim \\u00dcniversitesi, hesap numaras\\u0131 103855339 ve IBAN numaras\\u0131 TR84 0003 2000 0000 0103 8553 39'dur. Pe\\u015fin veya d\\u00f6nemlik \\u00f6demeler i\\u00e7in bu hesaba havale veya EFT yap\\u0131labilir. Ayr\\u0131ca, kredi kart\\u0131 ile \\u00f6deme i\\u015flemleri yaln\\u0131zca \\u00fcniversitenin online tahsilat sistemi \\u00fczerinden ger\\u00e7ekle\\u015ftirilebilmektedir; burada da taksit se\\u00e7ene\\u011fi yoktur ve \\u00f6demeler tek \\u00e7ekim olarak al\\u0131nmaktad\\u0131r. Fiziki olarak kamp\\u00fcs i\\u00e7inde kredi kart\\u0131 ile \\u00f6deme yap\\u0131lmamaktad\\u0131r. \\u00d6demelerin a\\u00e7\\u0131klama k\\u0131sm\\u0131nda ise \\\"\\u00d6\\u011frenci Ad\\u0131 Soyad\\u0131, T.C. Kimlik Numaras\\u0131 ve 2024-2025 E\\u011fitim Bedeli\\\" bilgileri eksiksiz bir \\u015fekilde belirtilmelidir. [Kaynak: odeme-kayit.pdf, B\\u00f6l\\u00fcm: B\\u00f6l\\u00fcm 1: \\u00d6deme ve Finansal \\u0130\\u015flemler (B\\u00f6l\\u00fcm 1)].\"}", "done": false}
+
+data: {"type": "complete", "content": "", "done": true, "sources": [], "full_response": "{\"type\": \"content\", \"content\": \"\", \"done\": false}{\"type\": \"content\", \"content\": \"An\", \"done\": false}{\"type\": \"content\", \"content\": \"kara\", \"done\": false}{\"type\": \"content\", \"content\": \" Bil\", \"done\": false}{\"type\": \"content\", \"content\": \"im\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00dcniversitesi\", \"done\": false}{\"type\": \"content\", \"content\": \"'\", \"done\": false}{\"type\": \"content\", \"content\": \"nde\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}{\"type\": \"content\", \"content\": \" i\\u015fle\", \"done\": false}{\"type\": \"content\", \"content\": \"mleri\", \"done\": false}{\"type\": \"content\", \"content\": \" i\\u00e7in\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00e7e\\u015fitli\", \"done\": false}{\"type\": \"content\", \"content\": \" y\\u00f6ntem\", \"done\": false}{\"type\": \"content\", \"content\": \"ler\", \"done\": false}{\"type\": \"content\", \"content\": \" bulunmaktad\\u0131r\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00d6\\u011f\", \"done\": false}{\"type\": \"content\", \"content\": \"r\", \"done\": false}{\"type\": \"content\", \"content\": \"enc\", \"done\": false}{\"type\": \"content\", \"content\": \"iler\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" e\\u011fitim\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00fccret\", \"done\": false}{\"type\": \"content\", \"content\": \"lerini\", \"done\": false}{\"type\": \"content\", \"content\": \" y\\u0131ll\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u0131k\", \"done\": false}{\"type\": \"content\", \"content\": \" pe\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u015f\", \"done\": false}{\"type\": \"content\", \"content\": \"in\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" d\\u00f6nem\", \"done\": false}{\"type\": \"content\", \"content\": \"lik\", \"done\": false}{\"type\": \"content\", \"content\": \" veya\", \"done\": false}{\"type\": \"content\", \"content\": \" tak\", \"done\": false}{\"type\": \"content\", \"content\": \"sit\", \"done\": false}{\"type\": \"content\", \"content\": \"li\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}{\"type\": \"content\", \"content\": \" se\\u00e7enek\", \"done\": false}{\"type\": \"content\", \"content\": \"leri\", \"done\": false}{\"type\": \"content\", \"content\": \" ile\", \"done\": false}{\"type\": \"content\", \"content\": \" ger\\u00e7ekle\\u015ft\", \"done\": false}{\"type\": \"content\", \"content\": \"ire\", \"done\": false}{\"type\": \"content\", \"content\": \"bilir\", \"done\": false}{\"type\": \"content\", \"content\": \"ler\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" Y\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u0131ll\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u0131k\", \"done\": false}{\"type\": \"content\", \"content\": \" pe\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u015f\", \"done\": false}{\"type\": \"content\", \"content\": \"in\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}{\"type\": \"content\", \"content\": \" se\\u00e7\", \"done\": false}{\"type\": \"content\", \"content\": \"ene\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u011fi\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" belirtil\", \"done\": false}{\"type\": \"content\", \"content\": \"en\", \"done\": false}{\"type\": \"content\", \"content\": \" tari\", \"done\": false}{\"type\": \"content\", \"content\": \"hler\", \"done\": false}{\"type\": \"content\", \"content\": \"de\", \"done\": false}{\"type\": \"content\", \"content\": \" %\", \"done\": false}{\"type\": \"content\", \"content\": \"10\", \"done\": false}{\"type\": \"content\", \"content\": \" ind\", \"done\": false}{\"type\": \"content\", \"content\": \"irim\", \"done\": false}{\"type\": \"content\", \"content\": \"li\", \"done\": false}{\"type\": \"content\", \"content\": \" olarak\", \"done\": false}{\"type\": \"content\", \"content\": \" sun\", \"done\": false}{\"type\": \"content\", \"content\": \"ul\", \"done\": false}{\"type\": \"content\", \"content\": \"maktad\\u0131r\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" D\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00f6n\", \"done\": false}{\"type\": \"content\", \"content\": \"em\", \"done\": false}{\"type\": \"content\", \"content\": \"lik\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6\", \"done\": false}{\"type\": \"content\", \"content\": \"dem\", \"done\": false}{\"type\": \"content\", \"content\": \"eler\", \"done\": false}{\"type\": \"content\", \"content\": \" ise\", \"done\": false}{\"type\": \"content\", \"content\": \" iki\", \"done\": false}{\"type\": \"content\", \"content\": \" e\\u015f\", \"done\": false}{\"type\": \"content\", \"content\": \"it\", \"done\": false}{\"type\": \"content\", \"content\": \" tak\", \"done\": false}{\"type\": \"content\", \"content\": \"sit\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u015fekl\", \"done\": false}{\"type\": \"content\", \"content\": \"inde\", \"done\": false}{\"type\": \"content\", \"content\": \" yap\\u0131l\", \"done\": false}{\"type\": \"content\", \"content\": \"abilir\", \"done\": false}{\"type\": \"content\", \"content\": \" ve\", \"done\": false}{\"type\": \"content\", \"content\": \" bu\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6\", \"done\": false}{\"type\": \"content\", \"content\": \"dem\", \"done\": false}{\"type\": \"content\", \"content\": \"elerde\", \"done\": false}{\"type\": \"content\", \"content\": \" pe\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u015f\", \"done\": false}{\"type\": \"content\", \"content\": \"in\", \"done\": false}{\"type\": \"content\", \"content\": \" ind\", \"done\": false}{\"type\": \"content\", \"content\": \"irim\", \"done\": false}{\"type\": \"content\", \"content\": \" uygulan\", \"done\": false}{\"type\": \"content\", \"content\": \"mam\", \"done\": false}{\"type\": \"content\", \"content\": \"aktad\\u0131r\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" T\", \"done\": false}{\"type\": \"content\", \"content\": \"aks\", \"done\": false}{\"type\": \"content\", \"content\": \"it\", \"done\": false}{\"type\": \"content\", \"content\": \"li\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}{\"type\": \"content\", \"content\": \" im\", \"done\": false}{\"type\": \"content\", \"content\": \"kan\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" anla\\u015f\", \"done\": false}{\"type\": \"content\", \"content\": \"mal\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" bank\", \"done\": false}{\"type\": \"content\", \"content\": \"alar\\u0131n\", \"done\": false}{\"type\": \"content\", \"content\": \" sund\", \"done\": false}{\"type\": \"content\", \"content\": \"u\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u011fu\", \"done\": false}{\"type\": \"content\", \"content\": \" okul\", \"done\": false}{\"type\": \"content\", \"content\": \" kred\", \"done\": false}{\"type\": \"content\", \"content\": \"isi\", \"done\": false}{\"type\": \"content\", \"content\": \" (\", \"done\": false}{\"type\": \"content\", \"content\": \"KM\", \"done\": false}{\"type\": \"content\", \"content\": \"H\", \"done\": false}{\"type\": \"content\", \"content\": \")\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00fcr\\u00fcn\", \"done\": false}{\"type\": \"content\", \"content\": \"leri\", \"done\": false}{\"type\": \"content\", \"content\": \" arac\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u0131l\\u0131\\u011f\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \"yla\", \"done\": false}{\"type\": \"content\", \"content\": \" sa\\u011f\", \"done\": false}{\"type\": \"content\", \"content\": \"lan\", \"done\": false}{\"type\": \"content\", \"content\": \"maktad\\u0131r\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" An\", \"done\": false}{\"type\": \"content\", \"content\": \"la\\u015f\", \"done\": false}{\"type\": \"content\", \"content\": \"mal\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" bank\", \"done\": false}{\"type\": \"content\", \"content\": \"alar\", \"done\": false}{\"type\": \"content\", \"content\": \" aras\\u0131nda\", \"done\": false}{\"type\": \"content\", \"content\": \" Vak\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \"f\", \"done\": false}{\"type\": \"content\", \"content\": \"bank\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" T\\u00fcrk\", \"done\": false}{\"type\": \"content\", \"content\": \" Ek\", \"done\": false}{\"type\": \"content\", \"content\": \"onomi\", \"done\": false}{\"type\": \"content\", \"content\": \" Bank\", \"done\": false}{\"type\": \"content\", \"content\": \"as\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" (\", \"done\": false}{\"type\": \"content\", \"content\": \"TE\", \"done\": false}{\"type\": \"content\", \"content\": \"B\", \"done\": false}{\"type\": \"content\", \"content\": \")\", \"done\": false}{\"type\": \"content\", \"content\": \" ve\", \"done\": false}{\"type\": \"content\", \"content\": \" Al\", \"done\": false}{\"type\": \"content\", \"content\": \"bar\", \"done\": false}{\"type\": \"content\", \"content\": \"akat\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00fcrk\", \"done\": false}{\"type\": \"content\", \"content\": \" bulunmaktad\\u0131r\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" \\n\\n\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00d6\", \"done\": false}{\"type\": \"content\", \"content\": \"dem\", \"done\": false}{\"type\": \"content\", \"content\": \"eler\", \"done\": false}{\"type\": \"content\", \"content\": \" i\\u00e7in\", \"done\": false}{\"type\": \"content\", \"content\": \" kullan\\u0131l\", \"done\": false}{\"type\": \"content\", \"content\": \"acak\", \"done\": false}{\"type\": \"content\", \"content\": \" banka\", \"done\": false}{\"type\": \"content\", \"content\": \" bilg\", \"done\": false}{\"type\": \"content\", \"content\": \"ileri\", \"done\": false}{\"type\": \"content\", \"content\": \" ise\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u015fu\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u015fek\", \"done\": false}{\"type\": \"content\", \"content\": \"ild\", \"done\": false}{\"type\": \"content\", \"content\": \"edir\", \"done\": false}{\"type\": \"content\", \"content\": \":\", \"done\": false}{\"type\": \"content\", \"content\": \" T\\u00fcrk\", \"done\": false}{\"type\": \"content\", \"content\": \" Ek\", \"done\": false}{\"type\": \"content\", \"content\": \"onomi\", \"done\": false}{\"type\": \"content\", \"content\": \" Bank\", \"done\": false}{\"type\": \"content\", \"content\": \"as\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" (\", \"done\": false}{\"type\": \"content\", \"content\": \"TE\", \"done\": false}{\"type\": \"content\", \"content\": \"B\", \"done\": false}{\"type\": \"content\", \"content\": \"),\", \"done\": false}{\"type\": \"content\", \"content\": \" hesap\", \"done\": false}{\"type\": \"content\", \"content\": \" ad\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" Ankara\", \"done\": false}{\"type\": \"content\", \"content\": \" Bil\", \"done\": false}{\"type\": \"content\", \"content\": \"im\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00dcniversitesi\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" hesap\", \"done\": false}{\"type\": \"content\", \"content\": \" num\", \"done\": false}{\"type\": \"content\", \"content\": \"aras\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"103\", \"done\": false}{\"type\": \"content\", \"content\": \"855\", \"done\": false}{\"type\": \"content\", \"content\": \"339\", \"done\": false}{\"type\": \"content\", \"content\": \" ve\", \"done\": false}{\"type\": \"content\", \"content\": \" IB\", \"done\": false}{\"type\": \"content\", \"content\": \"AN\", \"done\": false}{\"type\": \"content\", \"content\": \" num\", \"done\": false}{\"type\": \"content\", \"content\": \"aras\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" TR\", \"done\": false}{\"type\": \"content\", \"content\": \"84\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"000\", \"done\": false}{\"type\": \"content\", \"content\": \"3\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"200\", \"done\": false}{\"type\": \"content\", \"content\": \"0\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"000\", \"done\": false}{\"type\": \"content\", \"content\": \"0\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"010\", \"done\": false}{\"type\": \"content\", \"content\": \"3\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"855\", \"done\": false}{\"type\": \"content\", \"content\": \"3\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"39\", \"done\": false}{\"type\": \"content\", \"content\": \"'d\", \"done\": false}{\"type\": \"content\", \"content\": \"ur\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" Pe\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u015f\", \"done\": false}{\"type\": \"content\", \"content\": \"in\", \"done\": false}{\"type\": \"content\", \"content\": \" veya\", \"done\": false}{\"type\": \"content\", \"content\": \" d\\u00f6nem\", \"done\": false}{\"type\": \"content\", \"content\": \"lik\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6\", \"done\": false}{\"type\": \"content\", \"content\": \"dem\", \"done\": false}{\"type\": \"content\", \"content\": \"eler\", \"done\": false}{\"type\": \"content\", \"content\": \" i\\u00e7in\", \"done\": false}{\"type\": \"content\", \"content\": \" bu\", \"done\": false}{\"type\": \"content\", \"content\": \" hes\", \"done\": false}{\"type\": \"content\", \"content\": \"aba\", \"done\": false}{\"type\": \"content\", \"content\": \" hav\", \"done\": false}{\"type\": \"content\", \"content\": \"ale\", \"done\": false}{\"type\": \"content\", \"content\": \" veya\", \"done\": false}{\"type\": \"content\", \"content\": \" EFT\", \"done\": false}{\"type\": \"content\", \"content\": \" yap\\u0131l\", \"done\": false}{\"type\": \"content\", \"content\": \"abilir\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" Ayr\\u0131ca\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" kredi\", \"done\": false}{\"type\": \"content\", \"content\": \" kart\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" ile\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}{\"type\": \"content\", \"content\": \" i\\u015fle\", \"done\": false}{\"type\": \"content\", \"content\": \"mleri\", \"done\": false}{\"type\": \"content\", \"content\": \" yaln\\u0131z\", \"done\": false}{\"type\": \"content\", \"content\": \"ca\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00fcn\", \"done\": false}{\"type\": \"content\", \"content\": \"ivers\", \"done\": false}{\"type\": \"content\", \"content\": \"iten\", \"done\": false}{\"type\": \"content\", \"content\": \"in\", \"done\": false}{\"type\": \"content\", \"content\": \" online\", \"done\": false}{\"type\": \"content\", \"content\": \" tah\", \"done\": false}{\"type\": \"content\", \"content\": \"sil\", \"done\": false}{\"type\": \"content\", \"content\": \"at\", \"done\": false}{\"type\": \"content\", \"content\": \" sistemi\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00fczerinden\", \"done\": false}{\"type\": \"content\", \"content\": \" ger\\u00e7ekle\\u015ftir\", \"done\": false}{\"type\": \"content\", \"content\": \"ile\", \"done\": false}{\"type\": \"content\", \"content\": \"b\", \"done\": false}{\"type\": \"content\", \"content\": \"ilm\", \"done\": false}{\"type\": \"content\", \"content\": \"ektedir\", \"done\": false}{\"type\": \"content\", \"content\": \";\", \"done\": false}{\"type\": \"content\", \"content\": \" burada\", \"done\": false}{\"type\": \"content\", \"content\": \" da\", \"done\": false}{\"type\": \"content\", \"content\": \" tak\", \"done\": false}{\"type\": \"content\", \"content\": \"sit\", \"done\": false}{\"type\": \"content\", \"content\": \" se\\u00e7\", \"done\": false}{\"type\": \"content\", \"content\": \"ene\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u011fi\", \"done\": false}{\"type\": \"content\", \"content\": \" yok\", \"done\": false}{\"type\": \"content\", \"content\": \"tur\", \"done\": false}{\"type\": \"content\", \"content\": \" ve\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6\", \"done\": false}{\"type\": \"content\", \"content\": \"dem\", \"done\": false}{\"type\": \"content\", \"content\": \"eler\", \"done\": false}{\"type\": \"content\", \"content\": \" tek\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00e7ek\", \"done\": false}{\"type\": \"content\", \"content\": \"im\", \"done\": false}{\"type\": \"content\", \"content\": \" olarak\", \"done\": false}{\"type\": \"content\", \"content\": \" al\\u0131n\", \"done\": false}{\"type\": \"content\", \"content\": \"maktad\\u0131r\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" Fiz\", \"done\": false}{\"type\": \"content\", \"content\": \"iki\", \"done\": false}{\"type\": \"content\", \"content\": \" olarak\", \"done\": false}{\"type\": \"content\", \"content\": \" kamp\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00fcs\", \"done\": false}{\"type\": \"content\", \"content\": \" i\\u00e7inde\", \"done\": false}{\"type\": \"content\", \"content\": \" kredi\", \"done\": false}{\"type\": \"content\", \"content\": \" kart\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" ile\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00f6deme\", \"done\": false}{\"type\": \"content\", \"content\": \" yap\\u0131l\", \"done\": false}{\"type\": \"content\", \"content\": \"mam\", \"done\": false}{\"type\": \"content\", \"content\": \"aktad\\u0131r\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00d6\", \"done\": false}{\"type\": \"content\", \"content\": \"dem\", \"done\": false}{\"type\": \"content\", \"content\": \"elerin\", \"done\": false}{\"type\": \"content\", \"content\": \" a\\u00e7\\u0131kl\", \"done\": false}{\"type\": \"content\", \"content\": \"ama\", \"done\": false}{\"type\": \"content\", \"content\": \" k\\u0131sm\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u0131nda\", \"done\": false}{\"type\": \"content\", \"content\": \" ise\", \"done\": false}{\"type\": \"content\", \"content\": \" \\\"\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00d6\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u011f\", \"done\": false}{\"type\": \"content\", \"content\": \"r\", \"done\": false}{\"type\": \"content\", \"content\": \"enci\", \"done\": false}{\"type\": \"content\", \"content\": \" Ad\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" Soy\", \"done\": false}{\"type\": \"content\", \"content\": \"ad\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" T\", \"done\": false}{\"type\": \"content\", \"content\": \".C\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" Kim\", \"done\": false}{\"type\": \"content\", \"content\": \"lik\", \"done\": false}{\"type\": \"content\", \"content\": \" N\", \"done\": false}{\"type\": \"content\", \"content\": \"umar\", \"done\": false}{\"type\": \"content\", \"content\": \"as\\u0131\", \"done\": false}{\"type\": \"content\", \"content\": \" ve\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"202\", \"done\": false}{\"type\": \"content\", \"content\": \"4\", \"done\": false}{\"type\": \"content\", \"content\": \"-\", \"done\": false}{\"type\": \"content\", \"content\": \"202\", \"done\": false}{\"type\": \"content\", \"content\": \"5\", \"done\": false}{\"type\": \"content\", \"content\": \" E\\u011fitim\", \"done\": false}{\"type\": \"content\", \"content\": \" Bed\", \"done\": false}{\"type\": \"content\", \"content\": \"eli\", \"done\": false}{\"type\": \"content\", \"content\": \"\\\"\", \"done\": false}{\"type\": \"content\", \"content\": \" bilg\", \"done\": false}{\"type\": \"content\", \"content\": \"ileri\", \"done\": false}{\"type\": \"content\", \"content\": \" eks\", \"done\": false}{\"type\": \"content\", \"content\": \"iks\", \"done\": false}{\"type\": \"content\", \"content\": \"iz\", \"done\": false}{\"type\": \"content\", \"content\": \" bir\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u015fekilde\", \"done\": false}{\"type\": \"content\", \"content\": \" belirtil\", \"done\": false}{\"type\": \"content\", \"content\": \"mel\", \"done\": false}{\"type\": \"content\", \"content\": \"idir\", \"done\": false}{\"type\": \"content\", \"content\": \".\", \"done\": false}{\"type\": \"content\", \"content\": \" [\", \"done\": false}{\"type\": \"content\", \"content\": \"Kay\", \"done\": false}{\"type\": \"content\", \"content\": \"nak\", \"done\": false}{\"type\": \"content\", \"content\": \":\", \"done\": false}{\"type\": \"content\", \"content\": \" od\", \"done\": false}{\"type\": \"content\", \"content\": \"eme\", \"done\": false}{\"type\": \"content\", \"content\": \"-k\", \"done\": false}{\"type\": \"content\", \"content\": \"ay\", \"done\": false}{\"type\": \"content\", \"content\": \"it\", \"done\": false}{\"type\": \"content\", \"content\": \".pdf\", \"done\": false}{\"type\": \"content\", \"content\": \",\", \"done\": false}{\"type\": \"content\", \"content\": \" B\\u00f6l\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00fcm\", \"done\": false}{\"type\": \"content\", \"content\": \":\", \"done\": false}{\"type\": \"content\", \"content\": \" B\\u00f6l\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00fcm\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"1\", \"done\": false}{\"type\": \"content\", \"content\": \":\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u00d6\", \"done\": false}{\"type\": \"content\", \"content\": \"deme\", \"done\": false}{\"type\": \"content\", \"content\": \" ve\", \"done\": false}{\"type\": \"content\", \"content\": \" Finans\", \"done\": false}{\"type\": \"content\", \"content\": \"al\", \"done\": false}{\"type\": \"content\", \"content\": \" \\u0130\\u015f\", \"done\": false}{\"type\": \"content\", \"content\": \"le\", \"done\": false}{\"type\": \"content\", \"content\": \"mler\", \"done\": false}{\"type\": \"content\", \"content\": \" (\", \"done\": false}{\"type\": \"content\", \"content\": \"B\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00f6l\", \"done\": false}{\"type\": \"content\", \"content\": \"\\u00fcm\", \"done\": false}{\"type\": \"content\", \"content\": \" \", \"done\": false}{\"type\": \"content\", \"content\": \"1\", \"done\": false}{\"type\": \"content\", \"content\": \")].\", \"done\": false}{\"type\": \"complete\", \"content\": \"\", \"done\": true, \"full_response\": \"Ankara Bilim \\u00dcniversitesi'nde \\u00f6deme i\\u015flemleri i\\u00e7in \\u00e7e\\u015fitli y\\u00f6ntemler bulunmaktad\\u0131r. \\u00d6\\u011frenciler, e\\u011fitim \\u00fccretlerini y\\u0131ll\\u0131k pe\\u015fin, d\\u00f6nemlik veya taksitli \\u00f6deme se\\u00e7enekleri ile ger\\u00e7ekle\\u015ftirebilirler. Y\\u0131ll\\u0131k pe\\u015fin \\u00f6deme se\\u00e7ene\\u011fi, belirtilen tarihlerde %10 indirimli olarak sunulmaktad\\u0131r. D\\u00f6nemlik \\u00f6demeler ise iki e\\u015fit taksit \\u015feklinde yap\\u0131labilir ve bu \\u00f6demelerde pe\\u015fin indirim uygulanmamaktad\\u0131r. Taksitli \\u00f6deme imkan\\u0131, anla\\u015fmal\\u0131 bankalar\\u0131n sundu\\u011fu okul kredisi (KMH) \\u00fcr\\u00fcnleri arac\\u0131l\\u0131\\u011f\\u0131yla sa\\u011flanmaktad\\u0131r. Anla\\u015fmal\\u0131 bankalar aras\\u0131nda Vak\\u0131fbank, T\\u00fcrk Ekonomi Bankas\\u0131 (TEB) ve Albarakat\\u00fcrk bulunmaktad\\u0131r. \\n\\n\\u00d6demeler i\\u00e7in kullan\\u0131lacak banka bilgileri ise \\u015fu \\u015fekildedir: T\\u00fcrk Ekonomi Bankas\\u0131 (TEB), hesap ad\\u0131 Ankara Bilim \\u00dcniversitesi, hesap numaras\\u0131 103855339 ve IBAN numaras\\u0131 TR84 0003 2000 0000 0103 8553 39'dur. Pe\\u015fin veya d\\u00f6nemlik \\u00f6demeler i\\u00e7in bu hesaba havale veya EFT yap\\u0131labilir. Ayr\\u0131ca, kredi kart\\u0131 ile \\u00f6deme i\\u015flemleri yaln\\u0131zca \\u00fcniversitenin online tahsilat sistemi \\u00fczerinden ger\\u00e7ekle\\u015ftirilebilmektedir; burada da taksit se\\u00e7ene\\u011fi yoktur ve \\u00f6demeler tek \\u00e7ekim olarak al\\u0131nmaktad\\u0131r. Fiziki olarak kamp\\u00fcs i\\u00e7inde kredi kart\\u0131 ile \\u00f6deme yap\\u0131lmamaktad\\u0131r. \\u00d6demelerin a\\u00e7\\u0131klama k\\u0131sm\\u0131nda ise \\\"\\u00d6\\u011frenci Ad\\u0131 Soyad\\u0131, T.C. Kimlik Numaras\\u0131 ve 2024-2025 E\\u011fitim Bedeli\\\" bilgileri eksiksiz bir \\u015fekilde belirtilmelidir. [Kaynak: odeme-kayit.pdf, B\\u00f6l\\u00fcm: B\\u00f6l\\u00fcm 1: \\u00d6deme ve Finansal \\u0130\\u015flemler (B\\u00f6l\\u00fcm 1)].\"}", "timestamp": "2025-07-26T12:36:13.724118"}
+

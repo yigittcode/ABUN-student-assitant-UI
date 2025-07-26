@@ -1,0 +1,42 @@
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"\\u00d6\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"deme\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" yap\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"abil\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"mek\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" i\\u00e7in\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Ankara\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" Bil\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"im\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" \\u00dcniversitesi\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"'\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ne\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" ait\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" hesap\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" bilg\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"ileri\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" a\\u015fa\\u011f\\u0131\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"daki\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \" gib\", \"done\": false}", "done": false}
+
+data: {"type": "content", "content": "{\"type\": \"content\", \"content\": \"idir\", \"done\": false}", "done": false}
+

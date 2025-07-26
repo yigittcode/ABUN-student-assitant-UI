@@ -68,7 +68,8 @@ export const useChatStore = create<ChatState>((set, get) => ({
       const decoder = new TextDecoder();
       let fullResponse = '';
       let hasAddedFinalMessage = false;
-      let animationFrameId: number | null = null;
+      let buffer = ''; // Buffer for incomplete chunks
+      let lastUpdateLength = 0; // Track if content actually changed
       
       // Helper function to decode escape sequences
       const decodeEscapeSequences = (str: string): string => {
@@ -83,22 +84,24 @@ export const useChatStore = create<ChatState>((set, get) => ({
           .replace(/\\\\/g, '\\');
       };
       
-      // Smooth update function using requestAnimationFrame
-      const smoothUpdate = (content: string) => {
-        if (animationFrameId) {
-          cancelAnimationFrame(animationFrameId);
-        }
-        
-        animationFrameId = requestAnimationFrame(() => {
-          set({ streamingMessage: content });
-          animationFrameId = null;
-        });
-      };
-      
       while (true) {
         const { done, value } = await reader.read();
         
         if (done) {
+          // Process any remaining buffer
+          if (buffer.trim()) {
+            try {
+              const data = JSON.parse(buffer);
+              if (data.type === 'content' && data.content) {
+                fullResponse += data.content;
+              }
+            } catch (e) {
+              // JSON parse edilemiyorsa, buffer'ı direkt ekle
+              fullResponse += buffer;
+              console.warn('Failed to parse final buffer, added as raw:', buffer);
+            }
+          }
+          
           // Final update with complete content
           const finalContent = decodeEscapeSequences(fullResponse);
           set({ streamingMessage: finalContent });
@@ -112,20 +115,26 @@ export const useChatStore = create<ChatState>((set, get) => ({
             hasAddedFinalMessage = true;
           }
           
-          // Clear streaming state
-          set({ 
-            isLoading: false,
-            isStreaming: false, 
-            streamingMessage: '' 
-          });
+          // Delay clearing streaming state to allow UI to render the final message
+          setTimeout(() => {
+            set({ 
+              isLoading: false,
+              isStreaming: false, 
+              streamingMessage: '' 
+            });
+          }, 100);
           break;
         }
         
-        // Decode the chunk
+        // Decode the chunk and add to buffer
         const chunk = decoder.decode(value, { stream: true });
+        buffer += chunk;
         
         // Split by lines and process each line
-        const lines = chunk.split('\n');
+        const lines = buffer.split('\n');
+        
+        // Keep the last line in buffer if it's incomplete
+        buffer = lines.pop() || '';
         
         for (const line of lines) {
           const trimmedLine = line.trim();
@@ -175,8 +184,11 @@ export const useChatStore = create<ChatState>((set, get) => ({
                   set({ isLoading: false });
                 }
                 
-                // Update streaming message immediately with smooth animation
-                smoothUpdate(decodeEscapeSequences(fullResponse));
+                // Only update if content actually changed
+                if (fullResponse.length !== lastUpdateLength) {
+                  set({ streamingMessage: decodeEscapeSequences(fullResponse) });
+                  lastUpdateLength = fullResponse.length;
+                }
               } 
               // Handle completion
               else if (data.type === 'complete' && data.done) {
@@ -188,12 +200,33 @@ export const useChatStore = create<ChatState>((set, get) => ({
                   // Try to parse full_response as JSON if it contains streaming data
                   if (typeof data.full_response === 'string' && data.full_response.includes('"type":')) {
                     try {
-                      // This might be a concatenated JSON string, try to extract the actual response
-                      const regex = /"full_response":\s*"([^"]*(?:\\.[^"]*)*)"/;
-                      const match = data.full_response.match(regex);
-                      if (match && match[1]) {
-                        // Decode the escaped string
-                        actualResponse = decodeEscapeSequences(match[1]);
+                      // Check if this is the first complete chunk (clean response)
+                      if (data.full_response.includes('"full_response":')) {
+                        // This is the first complete chunk, extract the clean response
+                        const regex = /"full_response":\s*"([^"\\]*(?:\\.[^"\\]*)*)"/;
+                        const match = data.full_response.match(regex);
+                        if (match && match[1]) {
+                          actualResponse = decodeEscapeSequences(match[1]);
+                        }
+                      } else {
+                        // This is the second complete chunk with concatenated JSON strings
+                        // Extract the actual full_response from this chunk
+                        try {
+                          // Find the last "full_response" field in the concatenated JSON
+                          const fullResponseMatch = data.full_response.match(/"full_response":\s*"([^"\\]*(?:\\.[^"\\]*)*)"/g);
+                          if (fullResponseMatch && fullResponseMatch.length > 0) {
+                            // Take the last full_response (the complete one)
+                            const lastFullResponse = fullResponseMatch[fullResponseMatch.length - 1];
+                            const match = lastFullResponse.match(/"full_response":\s*"([^"\\]*(?:\\.[^"\\]*)*)"/);
+                            if (match && match[1]) {
+                              actualResponse = decodeEscapeSequences(match[1]);
+                            }
+                          }
+                        } catch (e) {
+                          console.warn('Failed to parse second complete chunk:', e);
+                          // If parsing fails, use the accumulated response
+                          continue;
+                        }
                       }
                     } catch (e) {
                       // If parsing fails, use the original response
@@ -202,6 +235,8 @@ export const useChatStore = create<ChatState>((set, get) => ({
                   }
                   
                   fullResponse = actualResponse;
+                  // --- DÜZELTME: Son complete chunk'tan sonra streamingMessage'i güncelle ---
+                  set({ streamingMessage: decodeEscapeSequences(fullResponse) });
                 }
                 
                 // Don't add message here, let the done handler do it
@@ -246,8 +281,11 @@ export const useChatStore = create<ChatState>((set, get) => ({
                   set({ isLoading: false });
                 }
                 
-                // Update streaming message immediately with smooth animation
-                smoothUpdate(decodeEscapeSequences(fullResponse));
+                // Only update if content actually changed
+                if (fullResponse.length !== lastUpdateLength) {
+                  set({ streamingMessage: decodeEscapeSequences(fullResponse) });
+                  lastUpdateLength = fullResponse.length;
+                }
               } 
               else if (data.type === 'complete' && data.done) {
                 if (data.full_response) {
@@ -257,12 +295,33 @@ export const useChatStore = create<ChatState>((set, get) => ({
                   // Try to parse full_response as JSON if it contains streaming data
                   if (typeof data.full_response === 'string' && data.full_response.includes('"type":')) {
                     try {
-                      // This might be a concatenated JSON string, try to extract the actual response
-                      const regex = /"full_response":\s*"([^"]*(?:\\.[^"]*)*)"/;
-                      const match = data.full_response.match(regex);
-                      if (match && match[1]) {
-                        // Decode the escaped string
-                        actualResponse = decodeEscapeSequences(match[1]);
+                      // Check if this is the first complete chunk (clean response)
+                      if (data.full_response.includes('"full_response":')) {
+                        // This is the first complete chunk, extract the clean response
+                        const regex = /"full_response":\s*"([^"\\]*(?:\\.[^"\\]*)*)"/;
+                        const match = data.full_response.match(regex);
+                        if (match && match[1]) {
+                          actualResponse = decodeEscapeSequences(match[1]);
+                        }
+                      } else {
+                        // This is the second complete chunk with concatenated JSON strings
+                        // Extract the actual full_response from this chunk
+                        try {
+                          // Find the last "full_response" field in the concatenated JSON
+                          const fullResponseMatch = data.full_response.match(/"full_response":\s*"([^"\\]*(?:\\.[^"\\]*)*)"/g);
+                          if (fullResponseMatch && fullResponseMatch.length > 0) {
+                            // Take the last full_response (the complete one)
+                            const lastFullResponse = fullResponseMatch[fullResponseMatch.length - 1];
+                            const match = lastFullResponse.match(/"full_response":\s*"([^"\\]*(?:\\.[^"\\]*)*)"/);
+                            if (match && match[1]) {
+                              actualResponse = decodeEscapeSequences(match[1]);
+                            }
+                          }
+                        } catch (e) {
+                          console.warn('Failed to parse second complete chunk:', e);
+                          // If parsing fails, use the accumulated response
+                          continue;
+                        }
                       }
                     } catch (e) {
                       // If parsing fails, use the original response

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, Moon, Sun, BookOpen, Users, Award, MapPin, User, GraduationCap, Phone, Mail, Instagram, Linkedin, Mic } from 'lucide-react'
 import Lottie from 'lottie-react'
@@ -11,6 +11,39 @@ const quickQuestions = [
   { icon: Award, text: "Başarı programları" },
   { icon: MapPin, text: "Kampüs konumu" }
 ]
+
+// Memoized streaming message component
+const StreamingMessage = React.memo(({ 
+  streamingMessage, 
+  isDark 
+}: { 
+  streamingMessage: string; 
+  isDark: boolean; 
+}) => {
+  return (
+    <div className="flex justify-start">
+      <div className="flex gap-3 max-w-[80%]">
+        <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+          isDark ? 'bg-navy-800' : 'bg-white border border-navy-200'
+        }`}>
+          <GraduationCap className={`w-4 h-4 ${
+            isDark ? 'text-navy-300' : 'text-navy-600'
+          }`} />
+        </div>
+        <div className={`px-4 py-3 rounded-2xl ${
+          isDark ? 'bg-navy-800 text-navy-100' : 'bg-white text-navy-900 border border-navy-200'
+        }`}>
+          <p className="text-sm leading-relaxed whitespace-pre-wrap">
+            {streamingMessage}
+            <span className="inline-block w-2 h-4 bg-current ml-1 rounded-sm animate-pulse" />
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+StreamingMessage.displayName = 'StreamingMessage';
 
 export default function ChatPage() {
   const [message, setMessage] = useState('')
@@ -249,48 +282,10 @@ export default function ChatPage() {
 
           {/* Streaming Message */}
           {isStreaming && streamingMessage && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              style={{ willChange: 'transform' }}
-              className="flex justify-start"
-            >
-              <div className="flex gap-3 max-w-[80%]">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                  isDark ? 'bg-navy-800' : 'bg-white border border-navy-200'
-                }`}>
-                  <GraduationCap className={`w-4 h-4 ${
-                    isDark ? 'text-navy-300' : 'text-navy-600'
-                  }`} />
-                </div>
-                <div 
-                  className={`px-4 py-3 rounded-2xl ${
-                    isDark ? 'bg-navy-800 text-navy-100' : 'bg-white text-navy-900 border border-navy-200'
-                  }`}
-                  style={{ 
-                    willChange: 'contents',
-                    contain: 'layout style paint'
-                  }}
-                >
-                  <p className="text-sm leading-relaxed whitespace-pre-wrap">
-                    {streamingMessage}
-                    <motion.span
-                      animate={{ opacity: [1, 0] }}
-                      transition={{ 
-                        duration: 0.6, 
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                      style={{
-                        willChange: 'opacity',
-                        transform: 'translateZ(0)'
-                      }}
-                      className="inline-block w-2 h-4 bg-current ml-1 rounded-sm"
-                    />
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+            <StreamingMessage 
+              streamingMessage={streamingMessage} 
+              isDark={isDark} 
+            />
           )}
 
           {/* Loading */}
